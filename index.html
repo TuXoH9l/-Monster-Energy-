@@ -31,9 +31,8 @@
             margin: 0;
             font-family: 'Creepster', cursive;
             font-size: 4em;
-            color: #000000;
-            -webkit-text-stroke: 1.5px #9b59b6;
-            text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+            color: #9b59b6;
+            text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
             letter-spacing: 5px;
         }
 
@@ -157,18 +156,36 @@
             border-color: #bb79d6;
         }
 
-        /* === НАЗВАНИЯ БАНК === */
+        /* === ДВУХУРОВНЕВЫЕ НАЗВАНИЯ === */
         .card-title {
-            font-family: 'Creepster', cursive;
-            font-size: 1.3em;
             margin: 0;
-            padding: 18px 20px 10px 20px;
+            padding: 18px 20px 5px 20px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .brand-name {
+            font-family: 'Creepster', cursive;
+            font-size: 1.1em;
+            color: #000000;
+            -webkit-text-stroke: 1px #9b59b6;
+            text-shadow: 0 0 8px rgba(155, 89, 182, 0.6);
+            letter-spacing: 2px;
+            transform: scaleX(0.95);
+            transform-origin: center;
+        }
+
+        .flavor-name {
+            font-family: 'Creepster', cursive;
+            font-size: 1.4em;
             font-weight: normal;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             transform: scaleX(0.9);
             transform-origin: center;
-            text-shadow: 0 0 8px currentColor;
+            text-shadow: 0 0 10px currentColor;
         }
 
         .card-image {
@@ -295,7 +312,8 @@
             header p { font-size: 1em; }
             .container { grid-template-columns: 1fr; gap: 20px; }
             .card-image { height: 260px; }
-            .card-title { font-size: 1.15em; }
+            .brand-name { font-size: 0.95em; }
+            .flavor-name { font-size: 1.2em; }
             #scrollTopBtn { width: 45px; height: 45px; bottom: 20px; right: 20px; }
         }
 
@@ -326,18 +344,139 @@
     </div>
 
     <div class="container">
-        <div class="card" data-category="original"><h2 class="card-title" style="color: #84bd00;">Monster Energy Original</h2><div class="card-image"><img src="original.jpg" alt="Original"></div><div class="card-rating">50/100</div><div class="card-comment">Золотая середина, отталкиваюсь от него</div></div>
-        <div class="card" data-category="ultra"><h2 class="card-title" style="color: #e0e0e0;">Monster Energy Ultra Zero</h2><div class="card-image"><img src="ultra_zero.jpg" alt="Ultra Zero"></div><div class="card-rating">95/100</div><div class="card-comment">Сильно понравился как вкус, так и дизайн, легенда</div></div>
-        <div class="card" data-category="ultra"><h2 class="card-title" style="color: #ff69b4;">Monster Energy Ultra Rosé</h2><div class="card-image"><img src="ultra_rose.jpg" alt="Ultra Rose"></div><div class="card-rating">85/100</div><div class="card-comment">Вкусно, красиво</div></div>
-        <div class="card" data-category="ultra"><h2 class="card-title" style="color: #ff4757;">Monster Energy Ultra Strawberry Dreams</h2><div class="card-image"><img src="ultra_strawberry.jpg" alt="Strawberry"></div><div class="card-rating">80/100</div><div class="card-comment">Вкусно, но не сильно запоминается</div></div>
-        <div class="card" data-category="ultra"><h2 class="card-title" style="color: #9b59b6;">Monster Energy Ultra Violet</h2><div class="card-image"><img src="ultra_violet.jpg" alt="Ultra Violet"></div><div class="card-rating">99/100</div><div class="card-comment">Мега хорош, буду надеяться, что будет ещё что-то вкуснее, по этому 99, но переплюнуть будет трудно</div></div>
-        <div class="card" data-category="ultra"><h2 class="card-title" style="color: #e74c3c;">Monster Energy Ultra Fantasy Ruby Red</h2><div class="card-image"><img src="ultra_ruby_red.jpg" alt="Ruby Red"></div><div class="card-rating">70/100</div><div class="card-comment">Вкусно, слишком сладкий как для цитруса</div></div>
-        <div class="card" data-category="juiced"><h2 class="card-title" style="color: #ff6b81;">Monster Energy Pipeline Punch</h2><div class="card-image"><img src="pipeline_punch.jpg" alt="Pipeline Punch"></div><div class="card-rating">75/100</div><div class="card-comment">Вкусно, но похож на мультифрукт</div></div>
-        <div class="card" data-category="juiced"><h2 class="card-title" style="color: #3498db;">Monster Energy Mango Loco</h2><div class="card-image"><img src="mango_loco.jpg" alt="Mango Loco"></div><div class="card-rating">78/100</div><div class="card-comment">Вкус манго делает его более насыщенным и разнообразным, но тоже похож на мультифрукт</div></div>
-        <div class="card" data-category="juiced"><h2 class="card-title" style="color: #c0392b;">Monster Energy Bad Apple</h2><div class="card-image"><img src="bad_apple.jpg" alt="Bad Apple"></div><div class="card-rating">87/100</div><div class="card-comment">Классный дизайн, на запах вкусно, вкус очень хорошо передаёт яблоко с кислинкой</div></div>
-        <div class="card" data-category="original"><h2 class="card-title" style="color: #f1c40f;">Monster Energy Full Throttle</h2><div class="card-image"><img src="full_throttle.jpg" alt="Full Throttle"></div><div class="card-rating">93/100</div><div class="card-comment">Люблю персик и нектарин, больше похож на чай с этим вкусом из-за манго</div></div>
-        <div class="card" data-category="juiced"><h2 class="card-title" style="color: #e67e22;">Monster Energy Monarch</h2><div class="card-image"><img src="monarch.jpg" alt="Monarch"></div><div class="card-rating">96/100</div><div class="card-comment">Тоже персик и нектарин, но уже как сок, без манго, так как серия джус, ставлю оценку выше, попали во вкус сока</div></div>
-        <div class="card" data-category="ultra"><h2 class="card-title" style="color: #1abc9c;">Monster Energy Ultra Fiesta Mango</h2><div class="card-image"><img src="ultra_fiesta.jpg" alt="Fiesta Mango"></div><div class="card-rating">90/100</div><div class="card-comment">Вкус похож на жвачку с манго маракуйей, приятный, лёгкий, без кислинки и в меру сладкий</div></div>
+
+        <!-- Original -->
+        <div class="card" data-category="original">
+            <h2 class="card-title">
+                <span class="brand-name">MONSTER ENERGY</span>
+                <span class="flavor-name" style="color: #84bd00;">ORIGINAL</span>
+            </h2>
+            <div class="card-image"><img src="original.jpg" alt="Original"></div>
+            <div class="card-rating">50/100</div>
+            <div class="card-comment">Классический сладкий цитрус с ванильным послевкусием. Тот самый вкус, с которого всё началось — терпкий, бодрящий, немного приторный. Золотая середина, от которой отталкиваюсь при оценке остальных.</div>
+        </div>
+
+        <!-- Ultra Zero -->
+        <div class="card" data-category="ultra">
+            <h2 class="card-title">
+                <span class="brand-name">MONSTER ENERGY</span>
+                <span class="flavor-name" style="color: #e0e0e0;">ULTRA ZERO</span>
+            </h2>
+            <div class="card-image"><img src="ultra_zero.jpg" alt="Ultra Zero"></div>
+            <div class="card-rating">95/100</div>
+            <div class="card-comment">Лёгкий цитрусовый вкус без сахара и калорий. Освежающий, чистый, с едва уловимой сладостью. Легенда среди Ultra-линейки — идеален в жару и после тренировки. Сильно понравился и вкус, и дизайн.</div>
+        </div>
+
+        <!-- Ultra Rosé -->
+        <div class="card" data-category="ultra">
+            <h2 class="card-title">
+                <span class="brand-name">MONSTER ENERGY</span>
+                <span class="flavor-name" style="color: #ff69b4;">ULTRA ROSÉ</span>
+            </h2>
+            <div class="card-image"><img src="ultra_rose.jpg" alt="Ultra Rosé"></div>
+            <div class="card-rating">85/100</div>
+            <div class="card-comment">Нежный персик с цветочными нотками и лёгким цитрусовым финишем. Без сахара, мягкий и питкий. Красивая розовая банка — вкусно и эстетично.</div>
+        </div>
+
+        <!-- Ultra Strawberry Dreams -->
+        <div class="card" data-category="ultra">
+            <h2 class="card-title">
+                <span class="brand-name">MONSTER ENERGY</span>
+                <span class="flavor-name" style="color: #ff4757;">ULTRA STRAWBERRY DREAMS</span>
+            </h2>
+            <div class="card-image"><img src="ultra_strawberry.jpg" alt="Strawberry"></div>
+            <div class="card-rating">80/100</div>
+            <div class="card-comment">Спелая клубника со сливочным оттенком, без сахара. Мягкий, десертный вкус — напоминает клубничный милкшейк. Вкусно, но не сильно запоминается.</div>
+        </div>
+
+        <!-- Ultra Violet -->
+        <div class="card" data-category="ultra">
+            <h2 class="card-title">
+                <span class="brand-name">MONSTER ENERGY</span>
+                <span class="flavor-name" style="color: #9b59b6;">ULTRA VIOLET</span>
+            </h2>
+            <div class="card-image"><img src="ultra_violet.jpg" alt="Ultra Violet"></div>
+            <div class="card-rating">99/100</div>
+            <div class="card-comment">Официально — лёгкий цитрус и виноград. На деле — чистый, сочный хрустящий виноград без навязчивой кислинки. Мега хорош. Буду надеяться, что будет ещё что-то вкуснее, но переплюнуть будет трудно.</div>
+        </div>
+
+        <!-- Ultra Fantasy Ruby Red -->
+        <div class="card" data-category="ultra">
+            <h2 class="card-title">
+                <span class="brand-name">MONSTER ENERGY</span>
+                <span class="flavor-name" style="color: #e74c3c;">ULTRA FANTASY RUBY RED</span>
+            </h2>
+            <div class="card-image"><img src="ultra_ruby_red.jpg" alt="Ruby Red"></div>
+            <div class="card-rating">70/100</div>
+            <div class="card-comment">Официально заявлен как малина, но на вкус — терпкий розовый грейпфрут. Лимитированная польская версия 0.5л с граффити-дизайном от Пинки Тейлор. Вкусно, но слишком сладкий для грейпфрута.</div>
+        </div>
+
+        <!-- Pipeline Punch -->
+        <div class="card" data-category="juiced">
+            <h2 class="card-title">
+                <span class="brand-name">MONSTER ENERGY</span>
+                <span class="flavor-name" style="color: #ff6b81;">PIPELINE PUNCH</span>
+            </h2>
+            <div class="card-image"><img src="pipeline_punch.jpg" alt="Pipeline Punch"></div>
+            <div class="card-rating">75/100</div>
+            <div class="card-comment">Тропический микс из маракуйи, апельсина и гуавы с добавлением фруктового сока. Насыщенный, сочный, летний вкус. Вкусно, но напоминает обычный мультифрукт из магазина.</div>
+        </div>
+
+        <!-- Mango Loco -->
+        <div class="card" data-category="juiced">
+            <h2 class="card-title">
+                <span class="brand-name">MONSTER ENERGY</span>
+                <span class="flavor-name" style="color: #3498db;">MANGO LOCO</span>
+            </h2>
+            <div class="card-image"><img src="mango_loco.jpg" alt="Mango Loco"></div>
+            <div class="card-rating">78/100</div>
+            <div class="card-comment">Сочное манго в сочетании с маракуйей и гуавой. Дизайн в стиле "Дня мёртвых" — один из самых узнаваемых в линейке. Вкус манго делает его более насыщенным, но тоже похож на мультифрукт.</div>
+        </div>
+
+        <!-- Bad Apple -->
+        <div class="card" data-category="juiced">
+            <h2 class="card-title">
+                <span class="brand-name">MONSTER ENERGY</span>
+                <span class="flavor-name" style="color: #c0392b;">BAD APPLE</span>
+            </h2>
+            <div class="card-image"><img src="bad_apple.jpg" alt="Bad Apple"></div>
+            <div class="card-rating">87/100</div>
+            <div class="card-comment">Хрустящее зелёное яблоко с приятной кислинкой. На запах — просто великолепно. Дерзкий дизайн с девушкой и яблоком в стиле Белоснежки. Вкус очень хорошо передаёт настоящее яблоко.</div>
+        </div>
+
+        <!-- Full Throttle -->
+        <div class="card" data-category="original">
+            <h2 class="card-title">
+                <span class="brand-name">MONSTER ENERGY</span>
+                <span class="flavor-name" style="color: #f1c40f;">FULL THROTTLE</span>
+            </h2>
+            <div class="card-image"><img src="full_throttle.jpg" alt="Full Throttle"></div>
+            <div class="card-rating">93/100</div>
+            <div class="card-comment">Персик и нектарин с лёгкой манговой ноткой. Без сахара. Напоминает любимый персиковый чай "Святой источник" — мягкий, освежающий, питкий. Люблю персик, поэтому оценка высокая.</div>
+        </div>
+
+        <!-- Monarch -->
+        <div class="card" data-category="juiced">
+            <h2 class="card-title">
+                <span class="brand-name">MONSTER ENERGY</span>
+                <span class="flavor-name" style="color: #e67e22;">MONARCH</span>
+            </h2>
+            <div class="card-image"><img src="monarch.jpg" alt="Monarch"></div>
+            <div class="card-rating">96/100</div>
+            <div class="card-comment">Персик и нектарин, но уже как настоящий сок — без манго, благодаря серии Juiced. Дизайн в стиле "Дня мёртвых" с бабочками-монархами. Попали прямо во вкус сока — оценка выше, чем у Full Throttle.</div>
+        </div>
+
+        <!-- Ultra Fiesta Mango -->
+        <div class="card" data-category="ultra">
+            <h2 class="card-title">
+                <span class="brand-name">MONSTER ENERGY</span>
+                <span class="flavor-name" style="color: #1abc9c;">ULTRA FIESTA MANGO</span>
+            </h2>
+            <div class="card-image"><img src="ultra_fiesta.jpg" alt="Fiesta Mango"></div>
+            <div class="card-rating">90/100</div>
+            <div class="card-comment">Спелое манго с мандарином и маракуйей. Без сахара. Вкус напоминает жвачку с манго-маракуйей — приятный, лёгкий, без кислинки и в меру сладкий. Идеален для летнего дня.</div>
+        </div>
+
     </div>
 
     <footer>
