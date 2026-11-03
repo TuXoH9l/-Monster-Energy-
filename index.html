@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Коллекция TuXoH9l | Monster Energy Catalog</title>
+    <!-- Подключаем крутой "монструозный" шрифт Creepster -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* === ОСНОВНЫЕ СТИЛИ === */
         * { box-sizing: border-box; }
@@ -19,7 +21,7 @@
             position: relative;
         }
 
-        /* === АНИМИРОВАННЫЙ ФОН (Мягкие блики) === */
+        /* === АНИМИРОВАННЫЙ ФОН === */
         .bg-glow {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -58,12 +60,19 @@
 
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-family: 'Creepster', cursive; /* Монструозный шрифт */
+            font-size: 3.5em;
             color: #9b59b6;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
             animation: pulse 3s ease-in-out infinite;
+        }
+
+        header p {
+            color: #b0a0c0;
+            font-size: 1.2em;
+            margin-top: 10px;
+            letter-spacing: 1px;
         }
 
         @keyframes pulse {
@@ -71,13 +80,7 @@
             50% { opacity: 0.9; text-shadow: 0 0 5px #9b59b6, 0 0 10px #9b59b6, 0 0 20px #9b59b6; }
         }
 
-        header p {
-            color: #b0a0c0;
-            font-size: 1.1em;
-            margin-top: 10px;
-        }
-
-        /* === ПОИСК === */
+        /* === ПОИСК С КРЕСТИКОМ === */
         .search-container {
             display: flex;
             justify-content: center;
@@ -86,10 +89,15 @@
             z-index: 10;
         }
 
-        #searchInput {
+        .search-wrapper {
+            position: relative;
             width: 100%;
             max-width: 500px;
-            padding: 12px 20px;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 12px 40px 12px 20px; /* Отступ справа для крестика */
             background: rgba(26, 10, 46, 0.6);
             border: 2px solid #9b59b6;
             border-radius: 25px;
@@ -106,6 +114,24 @@
         }
 
         #searchInput::placeholder { color: #6a5a7e; }
+
+        #clearSearch {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #9b59b6;
+            font-size: 1.2em;
+            cursor: pointer;
+            display: none; /* Скрыт по умолчанию */
+            padding: 0;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        #clearSearch:hover { color: #fff; text-shadow: 0 0 5px #9b59b6; }
 
         /* === КНОПКИ ФИЛЬТРОВ === */
         .filter-container {
@@ -152,7 +178,6 @@
             z-index: 1;
         }
 
-        /* === КАРТОЧКА === */
         .card {
             background: rgba(26, 10, 46, 0.6);
             backdrop-filter: blur(10px);
@@ -165,14 +190,8 @@
             transform: scale(1);
         }
 
-        .card.fade-out {
-            opacity: 0;
-            transform: scale(0.9);
-        }
-
-        .card.hidden {
-            display: none;
-        }
+        .card.fade-out { opacity: 0; transform: scale(0.9); }
+        .card.hidden { display: none; }
 
         .card:hover {
             transform: translateY(-8px);
@@ -210,13 +229,8 @@
             transition: transform 0.4s ease;
         }
 
-        .card:hover .card-image {
-            box-shadow: inset 0 0 30px rgba(155, 89, 182, 0.3);
-        }
-
-        .card:hover .card-image img {
-            transform: scale(1.08);
-        }
+        .card:hover .card-image { box-shadow: inset 0 0 30px rgba(155, 89, 182, 0.3); }
+        .card:hover .card-image img { transform: scale(1.08); }
 
         .card-rating {
             padding: 20px;
@@ -249,7 +263,7 @@
             font-size: 1.5em;
             border-radius: 50%;
             cursor: pointer;
-            display: none; /* Скрыта по умолчанию */
+            display: none;
             align-items: center;
             justify-content: center;
             box-shadow: 0 0 15px rgba(155, 89, 182, 0.4);
@@ -264,33 +278,54 @@
             transform: translateY(-5px);
         }
 
-        /* === ПОДВАЛ === */
+        /* === ПОДВАЛ С ТЕЛЕГРАМОМ === */
         footer {
             text-align: center;
             padding: 30px;
             color: #6a5a7e;
-            font-size: 0.9em;
+            font-size: 0.95em;
             border-top: 2px solid #9b59b6;
             background: rgba(10, 10, 26, 0.9);
             position: relative;
             z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
 
-        footer a {
+        .tg-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             color: #9b59b6;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.1em;
             transition: all 0.3s ease;
+            padding: 8px 16px;
+            border: 1px solid rgba(155, 89, 182, 0.3);
+            border-radius: 20px;
+            background: rgba(155, 89, 182, 0.05);
         }
 
-        footer a:hover {
-            color: #bb79d6;
-            text-shadow: 0 0 10px #9b59b6;
+        .tg-link:hover {
+            color: #fff;
+            border-color: #9b59b6;
+            box-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
+            background: rgba(155, 89, 182, 0.15);
+        }
+
+        .tg-link svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
         }
 
         /* === АДАПТИВНОСТЬ === */
         @media (max-width: 768px) {
-            header h1 { font-size: 1.8em; }
+            header h1 { font-size: 2.5em; }
+            header p { font-size: 1em; }
             .container { grid-template-columns: 1fr; gap: 20px; }
             .card-image { height: 280px; }
             #scrollTopBtn { width: 45px; height: 45px; bottom: 20px; right: 20px; }
@@ -299,7 +334,6 @@
 </head>
 <body>
 
-    <!-- Фоновые блики -->
     <div class="bg-glow">
         <div class="glow-orb orb-1"></div>
         <div class="glow-orb orb-2"></div>
@@ -307,16 +341,17 @@
     </div>
 
     <header>
-        <h1>TuXoH9l's ChaNNel</h1>
-        <p>Личный каталог Monster Energy</p>
+        <h1>Monster Energy</h1>
+        <p>Личный каталог TuXoH9l's ChaNNeL</p>
     </header>
 
-    <!-- Поиск -->
     <div class="search-container">
-        <input type="text" id="searchInput" placeholder="🔍 Найти банку...">
+        <div class="search-wrapper">
+            <input type="text" id="searchInput" placeholder="🔍 Найти банку...">
+            <button id="clearSearch" title="Очистить поиск">✕</button>
+        </div>
     </div>
 
-    <!-- Фильтры -->
     <div class="filter-container">
         <button class="filter-btn active" data-filter="all">Все</button>
         <button class="filter-btn" data-filter="ultra">Ultra</button>
@@ -325,7 +360,6 @@
     </div>
 
     <div class="container">
-        <!-- Карточки (те же самые, что и раньше, с data-category) -->
         <div class="card" data-category="original"><h2 class="card-title" style="color: #84bd00;">Monster Energy Original</h2><div class="card-image"><img src="original.jpg" alt="Original"></div><div class="card-rating">50/100</div><div class="card-comment">Золотая середина, отталкиваюсь от него</div></div>
         <div class="card" data-category="ultra"><h2 class="card-title" style="color: #e0e0e0;">Monster Energy Ultra Zero</h2><div class="card-image"><img src="ultra_zero.jpg" alt="Ultra Zero"></div><div class="card-rating">95/100</div><div class="card-comment">Сильно понравился как вкус, так и дизайн, легенда</div></div>
         <div class="card" data-category="ultra"><h2 class="card-title" style="color: #ff69b4;">Monster Energy Ultra Rosé</h2><div class="card-image"><img src="ultra_rose.jpg" alt="Ultra Rose"></div><div class="card-rating">85/100</div><div class="card-comment">Вкусно, красиво</div></div>
@@ -341,19 +375,26 @@
     </div>
 
     <footer>
-        <p>Сделано для личного архива <a href="https://t.me/TuXoH9l_696" target="_blank">TuXoH9l's ChaNNeL</a>. 2026</p>
+        <p>Личный архив и каталог вкусов</p>
+        <a href="https://t.me/TuXoH9l_696" target="_blank" class="tg-link">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.477-1.635.099-.002.321.023.465.141.121.099.154.232.17.325.015.093.034.305.019.471z"/></svg>
+            Telegram: TuXoH9l's ChaNNeL
+        </a>
     </footer>
 
-    <!-- Кнопка наверх -->
     <button id="scrollTopBtn" title="Наверх">↑</button>
 
     <script>
-        // === ПОИСК ===
         const searchInput = document.getElementById('searchInput');
+        const clearSearch = document.getElementById('clearSearch');
         const cards = document.querySelectorAll('.card');
+        const filterBtns = document.querySelectorAll('.filter-btn');
 
-        searchInput.addEventListener('input', (e) => {
-            const searchText = e.target.value.toLowerCase();
+        // === ПОИСК И КРЕСТИК ===
+        function performSearch() {
+            const searchText = searchInput.value.toLowerCase();
+            clearSearch.style.display = searchText.length > 0 ? 'block' : 'none';
+            
             cards.forEach(card => {
                 const title = card.querySelector('.card-title').textContent.toLowerCase();
                 if (title.includes(searchText)) {
@@ -361,6 +402,38 @@
                 } else {
                     card.classList.add('hidden');
                 }
+            });
+        }
+
+        searchInput.addEventListener('input', performSearch);
+
+        clearSearch.addEventListener('click', () => {
+            searchInput.value = '';
+            performSearch();
+            searchInput.focus();
+        });
+
+        // === СБРОС ПОИСКА ПРИ ФИЛЬТРАЦИИ ===
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Сбрасываем поиск
+                searchInput.value = '';
+                performSearch();
+
+                const filter = btn.getAttribute('data-filter');
+                cards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hidden');
+                        setTimeout(() => card.classList.remove('fade-out'), 10);
+                    } else {
+                        card.classList.add('fade-out');
+                        setTimeout(() => card.classList.add('hidden'), 400);
+                    }
+                });
             });
         });
 
@@ -375,27 +448,6 @@
         };
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // === ПЛАВНЫЕ ФИЛЬТРЫ ===
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const filter = btn.getAttribute('data-filter');
-
-                cards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    if (filter === 'all' || category === filter) {
-                        card.classList.remove('hidden');
-                        setTimeout(() => card.classList.remove('fade-out'), 10);
-                    } else {
-                        card.classList.add('fade-out');
-                        setTimeout(() => card.classList.add('hidden'), 400);
-                    }
-                });
-            });
         });
     </script>
 </body>
