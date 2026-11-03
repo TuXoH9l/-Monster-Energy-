@@ -6,6 +6,10 @@
     <title>Коллекция TuXoH9l | Monster Energy Catalog</title>
     <style>
         /* === ОСНОВНЫЕ СТИЛИ === */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #0a0a1a;
@@ -13,6 +17,24 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* === ФОНОВЫЕ ЭФФЕКТЫ === */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(155, 89, 182, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(155, 89, 182, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(132, 189, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         /* === ШАПКА САЙТА === */
@@ -20,8 +42,10 @@
             background: linear-gradient(135deg, #1a0a2e 0%, #0a0a1a 100%);
             padding: 40px 20px;
             text-align: center;
-            border-bottom: 3px solid #9b59b6;
-            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+            border-bottom: 2px solid #9b59b6;
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.4);
+            position: relative;
+            z-index: 1;
         }
 
         header h1 {
@@ -29,8 +53,17 @@
             font-size: 2.5em;
             color: #9b59b6;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+            letter-spacing: 3px;
+            text-shadow: 
+                0 0 10px #9b59b6, 
+                0 0 20px #9b59b6, 
+                0 0 40px #9b59b6;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.85; }
         }
 
         header p {
@@ -40,30 +73,127 @@
             text-shadow: 0 0 5px rgba(176, 160, 192, 0.5);
         }
 
-        /* === СЕТКА КАРТОЧЕК (2 КОЛОНКИ) === */
+        /* === КНОПКИ ФИЛЬТРОВ === */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid #9b59b6;
+            color: #9b59b6;
+            padding: 12px 30px;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(155, 89, 182, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(155, 89, 182, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .filter-btn:hover::before {
+            left: 100%;
+        }
+
+        .filter-btn:hover {
+            background: rgba(155, 89, 182, 0.2);
+            box-shadow: 
+                0 0 20px rgba(155, 89, 182, 0.6),
+                0 0 40px rgba(155, 89, 182, 0.4);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        .filter-btn.active {
+            background: rgba(155, 89, 182, 0.3);
+            box-shadow: 
+                0 0 30px rgba(155, 89, 182, 0.8),
+                inset 0 0 20px rgba(155, 89, 182, 0.3);
+            color: #fff;
+            border-color: #bb79d6;
+        }
+
+        .filter-btn:active {
+            transform: translateY(0);
+        }
+
+        /* === СЕТКА КАРТОЧЕК === */
         .container {
             max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: 0 auto;
+            padding: 0 20px 40px 20px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 30px;
+            position: relative;
+            z-index: 1;
         }
 
         /* === КАРТОЧКА === */
         .card {
-            background-color: #1a0a2e;
+            background: rgba(26, 10, 46, 0.6);
+            backdrop-filter: blur(10px);
             border-radius: 15px;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 2px solid #9b59b6;
-            box-shadow: 0 0 15px rgba(155, 89, 182, 0.3);
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
         }
 
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+        .card:nth-child(7) { animation-delay: 0.7s; }
+        .card:nth-child(8) { animation-delay: 0.8s; }
+        .card:nth-child(9) { animation-delay: 0.9s; }
+        .card:nth-child(10) { animation-delay: 1s; }
+        .card:nth-child(11) { animation-delay: 1.1s; }
+        .card:nth-child(12) { animation-delay: 1.2s; }
+
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(155, 89, 182, 0.6);
+            transform: translateY(-8px);
+            box-shadow: 
+                0 0 40px rgba(155, 89, 182, 0.6),
+                0 10px 50px rgba(155, 89, 182, 0.4);
             border-color: #bb79d6;
+        }
+
+        .card.hidden {
+            display: none;
         }
 
         /* === НАЗВАНИЕ БАНКИ === */
@@ -76,39 +206,38 @@
             text-shadow: 0 0 10px currentColor;
         }
 
-        /* === МЕСТО ДЛЯ ФОТО (с отступами внутри) === */
+        /* === МЕСТО ДЛЯ ФОТО === */
         .card-image {
             width: 100%;
-            height: 320px; /* Чуть выше, чтобы было больше воздуха */
-            background-color: #000000; /* Чёрный фон для неонового эффекта */
+            height: 320px;
+            background-color: #000000;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 25px; /* Отступы внутри — фото дальше от краёв */
+            padding: 25px;
             box-sizing: border-box;
             border-top: 2px solid #9b59b6;
             border-bottom: 2px solid #9b59b6;
-            transition: box-shadow 0.4s ease; /* Плавное появление свечения */
+            transition: box-shadow 0.4s ease;
         }
 
         .card-image img {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* Фото видно целиком, не обрезается */
+            object-fit: contain;
             transition: transform 0.4s ease;
         }
 
-        /* === НЕОНОВОЕ СВЕЧЕНИЕ ПРИ НАВЕДЕНИИ НА КАРТОЧКУ === */
         .card:hover .card-image {
             box-shadow: 
-                0 0 15px rgba(155, 89, 182, 0.4),    /* Мягкое фиолетовое свечение */
-                0 0 30px rgba(155, 89, 182, 0.2),    /* Рассеянное свечение */
-                inset 0 0 20px rgba(155, 89, 182, 0.15); /* Внутреннее свечение */
+                0 0 15px rgba(155, 89, 182, 0.4),
+                0 0 30px rgba(155, 89, 182, 0.2),
+                inset 0 0 20px rgba(155, 89, 182, 0.15);
         }
 
         .card:hover .card-image img {
-            transform: scale(1.08); /* Фото слегка увеличивается */
+            transform: scale(1.08);
         }
 
         /* === ОЦЕНКА === */
@@ -139,13 +268,85 @@
             font-size: 0.9em;
             border-top: 2px solid #9b59b6;
             margin-top: 50px;
-            text-shadow: 0 0 5px rgba(106, 90, 126, 0.5);
+            position: relative;
+            z-index: 1;
+            background: rgba(10, 10, 26, 0.8);
         }
 
-        /* === АДАПТИВНОСТЬ === */
+        footer a {
+            color: #9b59b6;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px rgba(155, 89, 182, 0.5);
+        }
+
+        footer a:hover {
+            color: #bb79d6;
+            text-shadow: 
+                0 0 10px #9b59b6,
+                0 0 20px #9b59b6;
+        }
+
+        /* === АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ === */
         @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            .filter-container {
+                gap: 10px;
+                padding: 20px 15px;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
             .container {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Одна колонка на телефонах */
+                gap: 20px;
+                padding: 0 15px 30px 15px;
+            }
+
+            .card-image {
+                height: 280px;
+                padding: 20px;
+            }
+
+            .card-title {
+                font-size: 1.2em;
+                padding: 15px 15px 10px 15px;
+            }
+
+            .card-rating {
+                font-size: 1.5em;
+                padding: 15px;
+            }
+
+            .card-comment {
+                padding: 12px 15px 15px 15px;
+                font-size: 0.95em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            .filter-btn {
+                padding: 8px 15px;
+                font-size: 0.85em;
+            }
+
+            .card-image {
+                height: 250px;
             }
         }
     </style>
@@ -157,10 +358,18 @@
         <p>Личный каталог Monster Energy</p>
     </header>
 
+    <!-- КНОПКИ ФИЛЬТРОВ -->
+    <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">Все</button>
+        <button class="filter-btn" data-filter="ultra">Ultra</button>
+        <button class="filter-btn" data-filter="juiced">Juiced</button>
+        <button class="filter-btn" data-filter="original">Original</button>
+    </div>
+
     <div class="container">
 
-        <!-- Карточка 1: Original (ЗЕЛЁНЫЙ) -->
-        <div class="card">
+        <!-- Карточка 1: Original -->
+        <div class="card" data-category="original">
             <h2 class="card-title" style="color: #84bd00;">Monster Energy Original</h2>
             <div class="card-image">
                 <img src="original.jpg" alt="Monster Energy Original">
@@ -169,8 +378,8 @@
             <div class="card-comment">Золотая середина, отталкиваюсь от него</div>
         </div>
 
-        <!-- Карточка 2: Ultra Zero (БЕЛЫЙ) -->
-        <div class="card">
+        <!-- Карточка 2: Ultra Zero -->
+        <div class="card" data-category="ultra">
             <h2 class="card-title" style="color: #e0e0e0;">Monster Energy Ultra Zero</h2>
             <div class="card-image">
                 <img src="ultra_zero.jpg" alt="Monster Energy Ultra Zero">
@@ -179,8 +388,8 @@
             <div class="card-comment">Сильно понравился как вкус, так и дизайн, легенда</div>
         </div>
 
-        <!-- Карточка 3: Ultra Rosé (РОЗОВЫЙ) -->
-        <div class="card">
+        <!-- Карточка 3: Ultra Rosé -->
+        <div class="card" data-category="ultra">
             <h2 class="card-title" style="color: #ff69b4;">Monster Energy Ultra Rosé</h2>
             <div class="card-image">
                 <img src="ultra_rose.jpg" alt="Monster Energy Ultra Rosé">
@@ -189,8 +398,8 @@
             <div class="card-comment">Вкусно, красиво</div>
         </div>
 
-        <!-- Карточка 4: Ultra Strawberry Dreams (КЛУБНИЧНЫЙ) -->
-        <div class="card">
+        <!-- Карточка 4: Ultra Strawberry Dreams -->
+        <div class="card" data-category="ultra">
             <h2 class="card-title" style="color: #ff4757;">Monster Energy Ultra Strawberry Dreams</h2>
             <div class="card-image">
                 <img src="ultra_strawberry.jpg" alt="Monster Energy Ultra Strawberry Dreams">
@@ -199,8 +408,8 @@
             <div class="card-comment">Вкусно, но не сильно запоминается</div>
         </div>
 
-        <!-- Карточка 5: Ultra Violet (ФИОЛЕТОВЫЙ) -->
-        <div class="card">
+        <!-- Карточка 5: Ultra Violet -->
+        <div class="card" data-category="ultra">
             <h2 class="card-title" style="color: #9b59b6;">Monster Energy Ultra Violet</h2>
             <div class="card-image">
                 <img src="ultra_violet.jpg" alt="Monster Energy Ultra Violet">
@@ -209,8 +418,8 @@
             <div class="card-comment">Мега хорош, буду надеяться, что будет ещё что-то вкуснее, по этому 99, но переплюнуть будет трудно</div>
         </div>
 
-        <!-- Карточка 6: Ultra Fantasy Ruby Red (РУБИНОВЫЙ) -->
-        <div class="card">
+        <!-- Карточка 6: Ultra Fantasy Ruby Red -->
+        <div class="card" data-category="ultra">
             <h2 class="card-title" style="color: #e74c3c;">Monster Energy Ultra Fantasy Ruby Red</h2>
             <div class="card-image">
                 <img src="ultra_ruby_red.jpg" alt="Monster Energy Ultra Fantasy Ruby Red">
@@ -219,8 +428,8 @@
             <div class="card-comment">Вкусно, слишком сладкий как для цитруса</div>
         </div>
 
-        <!-- Карточка 7: Pipeline Punch (РОЗОВО-КРАСНЫЙ) -->
-        <div class="card">
+        <!-- Карточка 7: Pipeline Punch -->
+        <div class="card" data-category="juiced">
             <h2 class="card-title" style="color: #ff6b81;">Monster Energy Pipeline Punch</h2>
             <div class="card-image">
                 <img src="pipeline_punch.jpg" alt="Monster Energy Pipeline Punch">
@@ -229,8 +438,8 @@
             <div class="card-comment">Вкусно, но похож на мультифрукт</div>
         </div>
 
-        <!-- Карточка 8: Mango Loco (ГОЛУБОЙ) -->
-        <div class="card">
+        <!-- Карточка 8: Mango Loco -->
+        <div class="card" data-category="juiced">
             <h2 class="card-title" style="color: #3498db;">Monster Energy Mango Loco</h2>
             <div class="card-image">
                 <img src="mango_loco.jpg" alt="Monster Energy Mango Loco">
@@ -239,8 +448,8 @@
             <div class="card-comment">Вкус манго делает его более насыщенным и разнообразным, но тоже похож на мультифрукт</div>
         </div>
 
-        <!-- Карточка 9: Bad Apple (ТЁМНО-КРАСНЫЙ) -->
-        <div class="card">
+        <!-- Карточка 9: Bad Apple -->
+        <div class="card" data-category="juiced">
             <h2 class="card-title" style="color: #c0392b;">Monster Energy Bad Apple</h2>
             <div class="card-image">
                 <img src="bad_apple.jpg" alt="Monster Energy Bad Apple">
@@ -249,8 +458,8 @@
             <div class="card-comment">Классный дизайн, на запах вкусно, вкус очень хорошо передаёт яблоко с кислинкой</div>
         </div>
 
-        <!-- Карточка 10: Full Throttle (ЖЁЛТО-ЗЕЛЁНЫЙ) -->
-        <div class="card">
+        <!-- Карточка 10: Full Throttle -->
+        <div class="card" data-category="original">
             <h2 class="card-title" style="color: #f1c40f;">Monster Energy Full Throttle</h2>
             <div class="card-image">
                 <img src="full_throttle.jpg" alt="Monster Energy Full Throttle">
@@ -259,8 +468,8 @@
             <div class="card-comment">Люблю персик и нектарин, больше похож на чай с этим вкусом из-за манго</div>
         </div>
 
-        <!-- Карточка 11: Monarch (ОРАНЖЕВЫЙ) -->
-        <div class="card">
+        <!-- Карточка 11: Monarch -->
+        <div class="card" data-category="juiced">
             <h2 class="card-title" style="color: #e67e22;">Monster Energy Monarch</h2>
             <div class="card-image">
                 <img src="monarch.jpg" alt="Monster Energy Monarch">
@@ -269,8 +478,8 @@
             <div class="card-comment">Тоже персик и нектарин, но уже как сок, без манго, так как серия джус, ставлю оценку выше, попали во вкус сока</div>
         </div>
 
-        <!-- Карточка 12: Ultra Fiesta Mango (БИРЮЗОВЫЙ) -->
-        <div class="card">
+        <!-- Карточка 12: Ultra Fiesta Mango -->
+        <div class="card" data-category="ultra">
             <h2 class="card-title" style="color: #1abc9c;">Monster Energy Ultra Fiesta Mango</h2>
             <div class="card-image">
                 <img src="ultra_fiesta.jpg" alt="Monster Energy Ultra Fiesta Mango">
@@ -282,8 +491,46 @@
     </div>
 
     <footer>
-        <p>Сделано для личного архива TuXoH9l's ChaNNeL. 2026</p>
+        <p>Сделано для личного архива <a href="https://t.me/TuXoH9l_696" target="_blank">TuXoH9l's ChaNNeL</a>. 2026</p>
     </footer>
+
+    <script>
+        // === ФИЛЬТРАЦИЯ ПО СЕРИЯМ ===
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Убираем active у всех кнопок
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Добавляем active нажатой кнопке
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    if (filter === 'all') {
+                        card.classList.remove('hidden');
+                        // Перезапускаем анимацию
+                        card.style.animation = 'none';
+                        setTimeout(() => {
+                            card.style.animation = '';
+                        }, 10);
+                    } else {
+                        if (card.getAttribute('data-category') === filter) {
+                            card.classList.remove('hidden');
+                            card.style.animation = 'none';
+                            setTimeout(() => {
+                                card.style.animation = '';
+                            }, 10);
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
