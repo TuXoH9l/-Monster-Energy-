@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Коллекция TuXoH9l | Monster Energy Catalog</title>
-    <!-- Подключаем крутой "монструозный" шрифт Creepster -->
     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* === ОСНОВНЫЕ СТИЛИ === */
         * { box-sizing: border-box; }
 
         body {
@@ -19,6 +17,24 @@
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
+            cursor: none; /* Скрываем стандартный курсор */
+        }
+
+        /* === КАСТОМНЫЙ КУРСОР (БЕЛАЯ БАНКА МОНСТРА) === */
+        .custom-cursor {
+            position: fixed;
+            width: 30px;
+            height: 40px;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease;
+        }
+
+        .custom-cursor svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
         }
 
         /* === АНИМИРОВАННЫЙ ФОН === */
@@ -60,12 +76,26 @@
 
         header h1 {
             margin: 0;
-            font-family: 'Creepster', cursive; /* Монструозный шрифт */
+            font-family: 'Creepster', cursive;
             font-size: 3.5em;
             color: #9b59b6;
             letter-spacing: 4px;
             text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
-            animation: pulse 3s ease-in-out infinite;
+            animation: pulse 3s ease-in-out infinite, glitch 5s infinite;
+            position: relative;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6; }
+            50% { opacity: 0.9; text-shadow: 0 0 5px #9b59b6, 0 0 10px #9b59b6, 0 0 20px #9b59b6; }
+        }
+
+        @keyframes glitch {
+            0%, 90%, 100% { transform: translate(0); }
+            92% { transform: translate(-2px, 1px); }
+            94% { transform: translate(2px, -1px); }
+            96% { transform: translate(-1px, 2px); }
+            98% { transform: translate(1px, -2px); }
         }
 
         header p {
@@ -75,12 +105,7 @@
             letter-spacing: 1px;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6; }
-            50% { opacity: 0.9; text-shadow: 0 0 5px #9b59b6, 0 0 10px #9b59b6, 0 0 20px #9b59b6; }
-        }
-
-        /* === ПОИСК С КРЕСТИКОМ === */
+        /* === ПОИСК === */
         .search-container {
             display: flex;
             justify-content: center;
@@ -97,7 +122,7 @@
 
         #searchInput {
             width: 100%;
-            padding: 12px 40px 12px 20px; /* Отступ справа для крестика */
+            padding: 12px 40px 12px 20px;
             background: rgba(26, 10, 46, 0.6);
             border: 2px solid #9b59b6;
             border-radius: 25px;
@@ -125,7 +150,7 @@
             color: #9b59b6;
             font-size: 1.2em;
             cursor: pointer;
-            display: none; /* Скрыт по умолчанию */
+            display: none;
             padding: 0;
             line-height: 1;
             transition: color 0.3s ease;
@@ -199,13 +224,31 @@
             border-color: #bb79d6;
         }
 
+        /* === ГЛИТЧ НАЗВАНИЯ ПРИ НАВЕДЕНИИ === */
         .card-title {
-            font-size: 1.4em;
+            font-family: 'Creepster', cursive;
+            font-size: 1.6em;
             margin: 0;
             padding: 20px 20px 10px 20px;
             text-align: center;
-            font-weight: bold;
+            font-weight: normal;
+            letter-spacing: 2px;
+            transform: scaleX(0.85);
+            transform-origin: center;
             text-shadow: 0 0 10px currentColor;
+            position: relative;
+        }
+
+        .card:hover .card-title {
+            animation: glitchTitle 0.3s ease;
+        }
+
+        @keyframes glitchTitle {
+            0%, 100% { transform: scaleX(0.85) translate(0); }
+            20% { transform: scaleX(0.85) translate(-2px, 1px); }
+            40% { transform: scaleX(0.85) translate(2px, -1px); }
+            60% { transform: scaleX(0.85) translate(-1px, 2px); }
+            80% { transform: scaleX(0.85) translate(1px, -2px); }
         }
 
         .card-image {
@@ -278,12 +321,12 @@
             transform: translateY(-5px);
         }
 
-        /* === ПОДВАЛ С ТЕЛЕГРАМОМ === */
+        /* === ПОДВАЛ === */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 40px 30px;
             color: #6a5a7e;
-            font-size: 0.95em;
+            font-size: 1em;
             border-top: 2px solid #9b59b6;
             background: rgba(10, 10, 26, 0.9);
             position: relative;
@@ -291,35 +334,141 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 20px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.1em;
+            letter-spacing: 1px;
         }
 
         .tg-link {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            color: #9b59b6;
+            gap: 10px;
+            color: #fff;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1em;
             transition: all 0.3s ease;
-            padding: 8px 16px;
-            border: 1px solid rgba(155, 89, 182, 0.3);
-            border-radius: 20px;
-            background: rgba(155, 89, 182, 0.05);
+            padding: 12px 30px;
+            border: 2px solid #9b59b6;
+            border-radius: 30px;
+            background: rgba(155, 89, 182, 0.1);
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
         }
 
         .tg-link:hover {
-            color: #fff;
-            border-color: #9b59b6;
-            box-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
-            background: rgba(155, 89, 182, 0.15);
+            background: rgba(155, 89, 182, 0.3);
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.6);
+            transform: translateY(-3px);
         }
 
         .tg-link svg {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             fill: currentColor;
+        }
+
+        /* === ПАСХАЛКА: МОНСТР === */
+        .monster-easter-egg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .monster-easter-egg.active {
+            display: flex;
+            animation: monsterAppear 4s ease-in-out;
+        }
+
+        @keyframes monsterAppear {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .monster-face {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .monster-eye {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: #9b59b6;
+            border-radius: 50%;
+            box-shadow: 0 0 30px #9b59b6, 0 0 60px #9b59b6;
+            animation: eyeGlow 0.5s ease-in-out infinite alternate;
+        }
+
+        .monster-eye.left { top: 80px; left: 60px; }
+        .monster-eye.right { top: 80px; right: 60px; }
+
+        @keyframes eyeGlow {
+            from { box-shadow: 0 0 30px #9b59b6, 0 0 60px #9b59b6; }
+            to { box-shadow: 0 0 50px #9b59b6, 0 0 100px #9b59b6; }
+        }
+
+        .monster-mouth {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 80px;
+            background: #fff;
+            border-radius: 0 0 90px 90px;
+            clip-path: polygon(0 0, 100% 0, 90% 100%, 70% 80%, 50% 100%, 30% 80%, 10% 100%);
+            animation: mouthOpen 0.3s ease-in-out infinite alternate;
+        }
+
+        @keyframes mouthOpen {
+            from { height: 80px; }
+            to { height: 100px; }
+        }
+
+        .monster-claw {
+            position: absolute;
+            width: 80px;
+            height: 120px;
+            background: #000;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .monster-claw.left {
+            left: -40px;
+            clip-path: polygon(100% 0, 100% 100%, 0 80%, 20% 60%, 0 40%, 20% 20%);
+            animation: clawLeft 0.5s ease-in-out infinite alternate;
+        }
+
+        .monster-claw.right {
+            right: -40px;
+            clip-path: polygon(0 0, 0 100%, 100% 80%, 80% 60%, 100% 40%, 80% 20%);
+            animation: clawRight 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes clawLeft {
+            from { transform: translateY(-50%) rotate(0deg); }
+            to { transform: translateY(-50%) rotate(-10deg); }
+        }
+
+        @keyframes clawRight {
+            from { transform: translateY(-50%) rotate(0deg); }
+            to { transform: translateY(-50%) rotate(10deg); }
         }
 
         /* === АДАПТИВНОСТЬ === */
@@ -328,11 +477,34 @@
             header p { font-size: 1em; }
             .container { grid-template-columns: 1fr; gap: 20px; }
             .card-image { height: 280px; }
+            .card-title { font-size: 1.4em; }
             #scrollTopBtn { width: 45px; height: 45px; bottom: 20px; right: 20px; }
+            .custom-cursor { display: none; } /* На мобильных убираем кастомный курсор */
+            body { cursor: auto; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Кастомный курсор -->
+    <div class="custom-cursor" id="customCursor">
+        <svg viewBox="0 0 30 40" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="5" width="20" height="30" rx="3" fill="#fff" stroke="#9b59b6" stroke-width="2"/>
+            <path d="M 10 15 L 15 10 L 20 15 L 15 25 Z" fill="#9b59b6"/>
+            <rect x="12" y="2" width="6" height="3" fill="#9b59b6"/>
+        </svg>
+    </div>
+
+    <!-- Пасхалка Монстр -->
+    <div class="monster-easter-egg" id="monsterEasterEgg">
+        <div class="monster-face">
+            <div class="monster-claw left"></div>
+            <div class="monster-claw right"></div>
+            <div class="monster-eye left"></div>
+            <div class="monster-eye right"></div>
+            <div class="monster-mouth"></div>
+        </div>
+    </div>
 
     <div class="bg-glow">
         <div class="glow-orb orb-1"></div>
@@ -375,22 +547,48 @@
     </div>
 
     <footer>
-        <p>Личный архив и каталог вкусов</p>
+        <p>Личный архив и каталог вкусов Тихоня ченел</p>
         <a href="https://t.me/TuXoH9l_696" target="_blank" class="tg-link">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.477-1.635.099-.002.321.023.465.141.121.099.154.232.17.325.015.093.034.305.019.471z"/></svg>
-            Telegram: TuXoH9l's ChaNNeL
+            Подписаться
         </a>
     </footer>
 
     <button id="scrollTopBtn" title="Наверх">↑</button>
 
     <script>
+        // === КАСТОМНЫЙ КУРСОР ===
+        const customCursor = document.getElementById('customCursor');
+        document.addEventListener('mousemove', (e) => {
+            customCursor.style.left = e.clientX + 'px';
+            customCursor.style.top = e.clientY + 'px';
+        });
+
+        // === ПАСХАЛКА MONSTER ===
         const searchInput = document.getElementById('searchInput');
-        const clearSearch = document.getElementById('clearSearch');
-        const cards = document.querySelectorAll('.card');
-        const filterBtns = document.querySelectorAll('.filter-btn');
+        const monsterEasterEgg = document.getElementById('monsterEasterEgg');
+        let monsterTimeout;
+
+        searchInput.addEventListener('input', (e) => {
+            const value = e.target.value.toUpperCase();
+            
+            if (value === 'MONSTER') {
+                // Показываем пасхалку
+                monsterEasterEgg.classList.add('active');
+                
+                // Через 4 секунды убираем
+                clearTimeout(monsterTimeout);
+                monsterTimeout = setTimeout(() => {
+                    monsterEasterEgg.classList.remove('active');
+                    searchInput.value = '';
+                }, 4000);
+            }
+        });
 
         // === ПОИСК И КРЕСТИК ===
+        const clearSearch = document.getElementById('clearSearch');
+        const cards = document.querySelectorAll('.card');
+
         function performSearch() {
             const searchText = searchInput.value.toLowerCase();
             clearSearch.style.display = searchText.length > 0 ? 'block' : 'none';
@@ -413,13 +611,13 @@
             searchInput.focus();
         });
 
-        // === СБРОС ПОИСКА ПРИ ФИЛЬТРАЦИИ ===
+        // === ФИЛЬТРЫ ===
+        const filterBtns = document.querySelectorAll('.filter-btn');
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 
-                // Сбрасываем поиск
                 searchInput.value = '';
                 performSearch();
 
