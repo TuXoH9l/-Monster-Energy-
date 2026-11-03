@@ -169,7 +169,7 @@
 
         .brand-name {
             font-family: 'Creepster', cursive;
-            font-size: 1.5em; /* УВЕЛИЧИЛ - теперь MONSTER ENERGY крупнее */
+            font-size: 1.1em;
             color: #000000;
             -webkit-text-stroke: 1px #9b59b6;
             text-shadow: 0 0 8px rgba(155, 89, 182, 0.6);
@@ -180,7 +180,7 @@
 
         .flavor-name {
             font-family: 'Creepster', cursive;
-            font-size: 1.1em; /* УМЕНЬШИЛ - теперь название вкуса меньше */
+            font-size: 0.8em;
             font-weight: normal;
             letter-spacing: 2px;
             transform: scaleX(0.9);
@@ -222,14 +222,13 @@
             border-bottom: 1px solid #4a3a5e;
         }
 
-        /* === ПОЛЕ ДЛЯ ОПИСАНИЯ (СКРЫТОЕ) === */
         .card-comment {
             padding: 12px 20px 18px 20px;
             font-size: 0.95em;
             color: #b0a0c0;
             font-style: italic;
             text-align: center;
-            display: none; /* СКРЫТО НА САЙТЕ */
+            min-height: 20px; /* Место для будущего описания */
         }
 
         /* === КНОПКА НАВЕРХ === */
@@ -314,8 +313,8 @@
             header p { font-size: 1em; }
             .container { grid-template-columns: 1fr; gap: 20px; }
             .card-image { height: 260px; }
-            .brand-name { font-size: 1.3em; }
-            .flavor-name { font-size: 1em; }
+            .brand-name { font-size: 0.95em; }
+            .flavor-name { font-size: 0.7em; }
             #scrollTopBtn { width: 45px; height: 45px; bottom: 20px; right: 20px; }
         }
 
@@ -355,7 +354,6 @@
             </h2>
             <div class="card-image"><img src="original.jpg" alt="Original"></div>
             <div class="card-rating">50/100</div>
-            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
             <div class="card-comment"></div>
         </div>
 
@@ -367,7 +365,6 @@
             </h2>
             <div class="card-image"><img src="ultra_zero.jpg" alt="Ultra Zero"></div>
             <div class="card-rating">95/100</div>
-            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
             <div class="card-comment"></div>
         </div>
 
@@ -379,7 +376,6 @@
             </h2>
             <div class="card-image"><img src="ultra_rose.jpg" alt="Ultra Rosé"></div>
             <div class="card-rating">85/100</div>
-            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
             <div class="card-comment"></div>
         </div>
 
@@ -391,7 +387,6 @@
             </h2>
             <div class="card-image"><img src="ultra_strawberry.jpg" alt="Strawberry"></div>
             <div class="card-rating">80/100</div>
-            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
             <div class="card-comment"></div>
         </div>
 
@@ -403,7 +398,6 @@
             </h2>
             <div class="card-image"><img src="ultra_violet.jpg" alt="Ultra Violet"></div>
             <div class="card-rating">99/100</div>
-            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
             <div class="card-comment"></div>
         </div>
 
@@ -415,7 +409,6 @@
             </h2>
             <div class="card-image"><img src="ultra_ruby_red.jpg" alt="Ruby Red"></div>
             <div class="card-rating">70/100</div>
-            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
             <div class="card-comment"></div>
         </div>
 
@@ -427,7 +420,6 @@
             </h2>
             <div class="card-image"><img src="pipeline_punch.jpg" alt="Pipeline Punch"></div>
             <div class="card-rating">75/100</div>
-            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
             <div class="card-comment"></div>
         </div>
 
@@ -439,7 +431,6 @@
             </h2>
             <div class="card-image"><img src="mango_loco.jpg" alt="Mango Loco"></div>
             <div class="card-rating">78/100</div>
-            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
             <div class="card-comment"></div>
         </div>
 
@@ -451,7 +442,6 @@
             </h2>
             <div class="card-image"><img src="bad_apple.jpg" alt="Bad Apple"></div>
             <div class="card-rating">87/100</div>
-            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
             <div class="card-comment"></div>
         </div>
 
@@ -463,7 +453,6 @@
             </h2>
             <div class="card-image"><img src="full_throttle.jpg" alt="Full Throttle"></div>
             <div class="card-rating">93/100</div>
-            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
             <div class="card-comment"></div>
         </div>
 
@@ -475,7 +464,6 @@
             </h2>
             <div class="card-image"><img src="monarch.jpg" alt="Monarch"></div>
             <div class="card-rating">96/100</div>
-            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
             <div class="card-comment"></div>
         </div>
 
@@ -487,7 +475,6 @@
             </h2>
             <div class="card-image"><img src="ultra_fiesta.jpg" alt="Fiesta Mango"></div>
             <div class="card-rating">90/100</div>
-            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
             <div class="card-comment"></div>
         </div>
 
