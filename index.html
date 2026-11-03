@@ -8,7 +8,7 @@
         /* === ОСНОВНЫЕ СТИЛИ === */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0a0a1a; /* Очень тёмный фон для неонового эффекта */
+            background-color: #0a0a1a;
             color: #e0e0e0;
             margin: 0;
             padding: 0;
@@ -21,7 +21,7 @@
             padding: 40px 20px;
             text-align: center;
             border-bottom: 3px solid #9b59b6;
-            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5); /* Неоновое свечение */
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
         }
 
         header h1 {
@@ -30,7 +30,7 @@
             color: #9b59b6;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6; /* Неоновое свечение текста */
+            text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
         }
 
         header p {
@@ -46,7 +46,7 @@
             margin: 40px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
         }
 
@@ -56,24 +56,24 @@
             border-radius: 15px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid #9b59b6; /* Фиолетовая обводка */
-            box-shadow: 0 0 15px rgba(155, 89, 182, 0.3); /* Неоновое свечение карточки */
+            border: 2px solid #9b59b6;
+            box-shadow: 0 0 15px rgba(155, 89, 182, 0.3);
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(155, 89, 182, 0.6); /* Усиленное свечение при наведении */
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.6);
             border-color: #bb79d6;
         }
 
-        /* === НАЗВАНИЕ БАНКИ (ЦВЕТ МЕНЯЕТСЯ ДЛЯ КАЖДОЙ) === */
+        /* === НАЗВАНИЕ БАНКИ === */
         .card-title {
             font-size: 1.4em;
             margin: 0;
             padding: 20px 20px 10px 20px;
             text-align: center;
             font-weight: bold;
-            text-shadow: 0 0 10px currentColor; /* Свечение в цвет текста */
+            text-shadow: 0 0 10px currentColor;
         }
 
         /* === МЕСТО ДЛЯ ФОТО === */
@@ -87,7 +87,7 @@
             justify-content: center;
             border-top: 2px solid #9b59b6;
             border-bottom: 2px solid #9b59b6;
-            box-shadow: inset 0 0 20px rgba(155, 89, 182, 0.2); /* Внутреннее свечение */
+            box-shadow: inset 0 0 20px rgba(155, 89, 182, 0.2);
         }
 
         .card-image img {
@@ -98,17 +98,17 @@
         }
 
         .card-image:hover img {
-            transform: scale(1.05); /* Увеличение при наведении */
+            transform: scale(1.05);
         }
 
-        /* === ОЦЕНКА (ПО ЦЕНТРУ, КРУПНЫЙ ШРИФТ) === */
+        /* === ОЦЕНКА === */
         .card-rating {
             padding: 20px;
-            font-size: 1.8em; /* Крупный шрифт */
+            font-size: 1.8em;
             font-weight: bold;
             color: #9b59b6;
-            text-align: center; /* По центру */
-            text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6; /* Неоновое свечение */
+            text-align: center;
+            text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6;
             border-bottom: 1px solid #4a3a5e;
         }
 
@@ -132,10 +132,10 @@
             text-shadow: 0 0 5px rgba(106, 90, 126, 0.5);
         }
 
-        /* === АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ === */
+        /* === АДАПТИВНОСТЬ === */
         @media (max-width: 768px) {
             .container {
-                grid-template-columns: 1fr; /* 1 колонка на мобильных */
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -153,17 +153,17 @@
         <div class="card">
             <h2 class="card-title" style="color: #84bd00;">Monster Energy Original</h2>
             <div class="card-image">
-                <img src="gif/original.png" alt="Monster Energy Original">
+                <img src="original.jpg" alt="Monster Energy Original">
             </div>
             <div class="card-rating">50/100</div>
             <div class="card-comment">Золотая середина, отталкиваюсь от него</div>
         </div>
 
-        <!-- Карточка 2: Ultra Zero (БЕЛЫЙ/СЕРЕБРИСТЫЙ) -->
+        <!-- Карточка 2: Ultra Zero (БЕЛЫЙ) -->
         <div class="card">
             <h2 class="card-title" style="color: #e0e0e0;">Monster Energy Ultra Zero</h2>
             <div class="card-image">
-                <img src="gif/ultra_zero.png" alt="Monster Energy Ultra Zero">
+                <img src="ultra_zero.jpg" alt="Monster Energy Ultra Zero">
             </div>
             <div class="card-rating">95/100</div>
             <div class="card-comment">Сильно понравился как вкус, так и дизайн, легенда</div>
@@ -173,7 +173,7 @@
         <div class="card">
             <h2 class="card-title" style="color: #ff69b4;">Monster Energy Ultra Rosé</h2>
             <div class="card-image">
-                <img src="gif/ultra_rose.png" alt="Monster Energy Ultra Rosé">
+                <img src="ultra_rose.jpg" alt="Monster Energy Ultra Rosé">
             </div>
             <div class="card-rating">85/100</div>
             <div class="card-comment">Вкусно, красиво</div>
@@ -183,7 +183,7 @@
         <div class="card">
             <h2 class="card-title" style="color: #ff4757;">Monster Energy Ultra Strawberry Dreams</h2>
             <div class="card-image">
-                <img src="gif/ultra_strawberry.png" alt="Monster Energy Ultra Strawberry Dreams">
+                <img src="ultra_strawberry.jpg" alt="Monster Energy Ultra Strawberry Dreams">
             </div>
             <div class="card-rating">80/100</div>
             <div class="card-comment">Вкусно, но не сильно запоминается</div>
@@ -193,17 +193,17 @@
         <div class="card">
             <h2 class="card-title" style="color: #9b59b6;">Monster Energy Ultra Violet</h2>
             <div class="card-image">
-                <img src="gif/ultra_violet.png" alt="Monster Energy Ultra Violet">
+                <img src="ultra_violet.jpg" alt="Monster Energy Ultra Violet">
             </div>
             <div class="card-rating">99/100</div>
             <div class="card-comment">Мега хорош, буду надеяться, что будет ещё что-то вкуснее, по этому 99, но переплюнуть будет трудно</div>
         </div>
 
-        <!-- Карточка 6: Ultra Fantasy Ruby Red (РУБИНОВЫЙ/КРАСНЫЙ) -->
+        <!-- Карточка 6: Ultra Fantasy Ruby Red (РУБИНОВЫЙ) -->
         <div class="card">
             <h2 class="card-title" style="color: #e74c3c;">Monster Energy Ultra Fantasy Ruby Red</h2>
             <div class="card-image">
-                <img src="gif/ultra_ruby_red.png" alt="Monster Energy Ultra Fantasy Ruby Red">
+                <img src="ultra_ruby_red.jpg" alt="Monster Energy Ultra Fantasy Ruby Red">
             </div>
             <div class="card-rating">70/100</div>
             <div class="card-comment">Вкусно, слишком сладкий как для цитруса</div>
@@ -213,17 +213,17 @@
         <div class="card">
             <h2 class="card-title" style="color: #ff6b81;">Monster Energy Pipeline Punch</h2>
             <div class="card-image">
-                <img src="gif/pipeline_punch.png" alt="Monster Energy Pipeline Punch">
+                <img src="pipeline_punch.jpg" alt="Monster Energy Pipeline Punch">
             </div>
             <div class="card-rating">75/100</div>
             <div class="card-comment">Вкусно, но похож на мультифрукт</div>
         </div>
 
-        <!-- Карточка 8: Mango Loco (ГОЛУБОЙ/ОРАНЖЕВЫЙ) -->
+        <!-- Карточка 8: Mango Loco (ГОЛУБОЙ) -->
         <div class="card">
             <h2 class="card-title" style="color: #3498db;">Monster Energy Mango Loco</h2>
             <div class="card-image">
-                <img src="gif/mango_loco.png" alt="Monster Energy Mango Loco">
+                <img src="mango_loco.jpg" alt="Monster Energy Mango Loco">
             </div>
             <div class="card-rating">78/100</div>
             <div class="card-comment">Вкус манго делает его более насыщенным и разнообразным, но тоже похож на мультифрукт</div>
@@ -233,7 +233,7 @@
         <div class="card">
             <h2 class="card-title" style="color: #c0392b;">Monster Energy Bad Apple</h2>
             <div class="card-image">
-                <img src="gif/bad_apple.png" alt="Monster Energy Bad Apple">
+                <img src="bad_apple.jpg" alt="Monster Energy Bad Apple">
             </div>
             <div class="card-rating">87/100</div>
             <div class="card-comment">Классный дизайн, на запах вкусно, вкус очень хорошо передаёт яблоко с кислинкой</div>
@@ -243,7 +243,7 @@
         <div class="card">
             <h2 class="card-title" style="color: #f1c40f;">Monster Energy Full Throttle</h2>
             <div class="card-image">
-                <img src="gif/full_throttle.png" alt="Monster Energy Full Throttle">
+                <img src="full_throttle.jpg" alt="Monster Energy Full Throttle">
             </div>
             <div class="card-rating">93/100</div>
             <div class="card-comment">Люблю персик и нектарин, больше похож на чай с этим вкусом из-за манго</div>
@@ -253,7 +253,7 @@
         <div class="card">
             <h2 class="card-title" style="color: #e67e22;">Monster Energy Monarch</h2>
             <div class="card-image">
-                <img src="gif/monarch.png" alt="Monster Energy Monarch">
+                <img src="monarch.jpg" alt="Monster Energy Monarch">
             </div>
             <div class="card-rating">96/100</div>
             <div class="card-comment">Тоже персик и нектарин, но уже как сок, без манго, так как серия джус, ставлю оценку выше, попали во вкус сока</div>
@@ -263,7 +263,7 @@
         <div class="card">
             <h2 class="card-title" style="color: #1abc9c;">Monster Energy Ultra Fiesta Mango</h2>
             <div class="card-image">
-                <img src="gif/ultra_fiesta.png" alt="Monster Energy Ultra Fiesta Mango">
+                <img src="ultra_fiesta.jpg" alt="Monster Energy Ultra Fiesta Mango">
             </div>
             <div class="card-rating">90/100</div>
             <div class="card-comment">Вкус похож на жвачку с манго маракуйей, приятный, лёгкий, без кислинки и в меру сладкий</div>
