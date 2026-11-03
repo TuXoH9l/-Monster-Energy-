@@ -169,7 +169,7 @@
 
         .brand-name {
             font-family: 'Creepster', cursive;
-            font-size: 1.1em;
+            font-size: 1.5em; /* УВЕЛИЧИЛ - теперь MONSTER ENERGY крупнее */
             color: #000000;
             -webkit-text-stroke: 1px #9b59b6;
             text-shadow: 0 0 8px rgba(155, 89, 182, 0.6);
@@ -180,7 +180,7 @@
 
         .flavor-name {
             font-family: 'Creepster', cursive;
-            font-size: 1.4em;
+            font-size: 1.1em; /* УМЕНЬШИЛ - теперь название вкуса меньше */
             font-weight: normal;
             letter-spacing: 2px;
             transform: scaleX(0.9);
@@ -222,12 +222,14 @@
             border-bottom: 1px solid #4a3a5e;
         }
 
+        /* === ПОЛЕ ДЛЯ ОПИСАНИЯ (СКРЫТОЕ) === */
         .card-comment {
             padding: 12px 20px 18px 20px;
             font-size: 0.95em;
             color: #b0a0c0;
             font-style: italic;
             text-align: center;
+            display: none; /* СКРЫТО НА САЙТЕ */
         }
 
         /* === КНОПКА НАВЕРХ === */
@@ -312,8 +314,8 @@
             header p { font-size: 1em; }
             .container { grid-template-columns: 1fr; gap: 20px; }
             .card-image { height: 260px; }
-            .brand-name { font-size: 0.95em; }
-            .flavor-name { font-size: 1.2em; }
+            .brand-name { font-size: 1.3em; }
+            .flavor-name { font-size: 1em; }
             #scrollTopBtn { width: 45px; height: 45px; bottom: 20px; right: 20px; }
         }
 
@@ -353,7 +355,8 @@
             </h2>
             <div class="card-image"><img src="original.jpg" alt="Original"></div>
             <div class="card-rating">50/100</div>
-            <div class="card-comment">Классический сладкий цитрус с ванильным послевкусием. Тот самый вкус, с которого всё началось — терпкий, бодрящий, немного приторный. Золотая середина, от которой отталкиваюсь при оценке остальных.</div>
+            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
+            <div class="card-comment"></div>
         </div>
 
         <!-- Ultra Zero -->
@@ -364,7 +367,8 @@
             </h2>
             <div class="card-image"><img src="ultra_zero.jpg" alt="Ultra Zero"></div>
             <div class="card-rating">95/100</div>
-            <div class="card-comment">Лёгкий цитрусовый вкус без сахара и калорий. Освежающий, чистый, с едва уловимой сладостью. Легенда среди Ultra-линейки — идеален в жару и после тренировки. Сильно понравился и вкус, и дизайн.</div>
+            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
+            <div class="card-comment"></div>
         </div>
 
         <!-- Ultra Rosé -->
@@ -375,7 +379,8 @@
             </h2>
             <div class="card-image"><img src="ultra_rose.jpg" alt="Ultra Rosé"></div>
             <div class="card-rating">85/100</div>
-            <div class="card-comment">Нежный персик с цветочными нотками и лёгким цитрусовым финишем. Без сахара, мягкий и питкий. Красивая розовая банка — вкусно и эстетично.</div>
+            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
+            <div class="card-comment"></div>
         </div>
 
         <!-- Ultra Strawberry Dreams -->
@@ -386,7 +391,8 @@
             </h2>
             <div class="card-image"><img src="ultra_strawberry.jpg" alt="Strawberry"></div>
             <div class="card-rating">80/100</div>
-            <div class="card-comment">Спелая клубника со сливочным оттенком, без сахара. Мягкий, десертный вкус — напоминает клубничный милкшейк. Вкусно, но не сильно запоминается.</div>
+            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
+            <div class="card-comment"></div>
         </div>
 
         <!-- Ultra Violet -->
@@ -397,7 +403,8 @@
             </h2>
             <div class="card-image"><img src="ultra_violet.jpg" alt="Ultra Violet"></div>
             <div class="card-rating">99/100</div>
-            <div class="card-comment">Официально — лёгкий цитрус и виноград. На деле — чистый, сочный хрустящий виноград без навязчивой кислинки. Мега хорош. Буду надеяться, что будет ещё что-то вкуснее, но переплюнуть будет трудно.</div>
+            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
+            <div class="card-comment"></div>
         </div>
 
         <!-- Ultra Fantasy Ruby Red -->
@@ -408,7 +415,8 @@
             </h2>
             <div class="card-image"><img src="ultra_ruby_red.jpg" alt="Ruby Red"></div>
             <div class="card-rating">70/100</div>
-            <div class="card-comment">Официально заявлен как малина, но на вкус — терпкий розовый грейпфрут. Лимитированная польская версия 0.5л с граффити-дизайном от Пинки Тейлор. Вкусно, но слишком сладкий для грейпфрута.</div>
+            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
+            <div class="card-comment"></div>
         </div>
 
         <!-- Pipeline Punch -->
@@ -419,7 +427,8 @@
             </h2>
             <div class="card-image"><img src="pipeline_punch.jpg" alt="Pipeline Punch"></div>
             <div class="card-rating">75/100</div>
-            <div class="card-comment">Тропический микс из маракуйи, апельсина и гуавы с добавлением фруктового сока. Насыщенный, сочный, летний вкус. Вкусно, но напоминает обычный мультифрукт из магазина.</div>
+            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
+            <div class="card-comment"></div>
         </div>
 
         <!-- Mango Loco -->
@@ -430,7 +439,8 @@
             </h2>
             <div class="card-image"><img src="mango_loco.jpg" alt="Mango Loco"></div>
             <div class="card-rating">78/100</div>
-            <div class="card-comment">Сочное манго в сочетании с маракуйей и гуавой. Дизайн в стиле "Дня мёртвых" — один из самых узнаваемых в линейке. Вкус манго делает его более насыщенным, но тоже похож на мультифрукт.</div>
+            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
+            <div class="card-comment"></div>
         </div>
 
         <!-- Bad Apple -->
@@ -441,7 +451,8 @@
             </h2>
             <div class="card-image"><img src="bad_apple.jpg" alt="Bad Apple"></div>
             <div class="card-rating">87/100</div>
-            <div class="card-comment">Хрустящее зелёное яблоко с приятной кислинкой. На запах — просто великолепно. Дерзкий дизайн с девушкой и яблоком в стиле Белоснежки. Вкус очень хорошо передаёт настоящее яблоко.</div>
+            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
+            <div class="card-comment"></div>
         </div>
 
         <!-- Full Throttle -->
@@ -452,7 +463,8 @@
             </h2>
             <div class="card-image"><img src="full_throttle.jpg" alt="Full Throttle"></div>
             <div class="card-rating">93/100</div>
-            <div class="card-comment">Персик и нектарин с лёгкой манговой ноткой. Без сахара. Напоминает любимый персиковый чай "Святой источник" — мягкий, освежающий, питкий. Люблю персик, поэтому оценка высокая.</div>
+            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
+            <div class="card-comment"></div>
         </div>
 
         <!-- Monarch -->
@@ -463,7 +475,8 @@
             </h2>
             <div class="card-image"><img src="monarch.jpg" alt="Monarch"></div>
             <div class="card-rating">96/100</div>
-            <div class="card-comment">Персик и нектарин, но уже как настоящий сок — без манго, благодаря серии Juiced. Дизайн в стиле "Дня мёртвых" с бабочками-монархами. Попали прямо во вкус сока — оценка выше, чем у Full Throttle.</div>
+            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
+            <div class="card-comment"></div>
         </div>
 
         <!-- Ultra Fiesta Mango -->
@@ -474,7 +487,8 @@
             </h2>
             <div class="card-image"><img src="ultra_fiesta.jpg" alt="Fiesta Mango"></div>
             <div class="card-rating">90/100</div>
-            <div class="card-comment">Спелое манго с мандарином и маракуйей. Без сахара. Вкус напоминает жвачку с манго-маракуйей — приятный, лёгкий, без кислинки и в меру сладкий. Идеален для летнего дня.</div>
+            <!-- МЕСТО ДЛЯ ОПИСАНИЯ: добавь текст между тегами div ниже, когда будешь готов -->
+            <div class="card-comment"></div>
         </div>
 
     </div>
