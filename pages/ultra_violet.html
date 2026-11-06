@@ -151,6 +151,9 @@
             text-shadow: 0 0 8px rgba(155, 89, 182, 0.5);
             border-bottom: 1px solid rgba(155, 89, 182, 0.3);
             padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .info-block p {
@@ -228,26 +231,57 @@
             font-size: 1.05em;
         }
 
-        /* === ОСОБЫЙ БЛОК ДЛЯ ЛУЧШЕГО НАПИТКА === */
-        .best-drink {
-            background: linear-gradient(135deg, rgba(155, 89, 182, 0.2) 0%, rgba(26, 10, 46, 0.6) 100%);
-            border: 2px solid #9b59b6;
-            border-radius: 15px;
-            padding: 20px;
+        /* === ВСПЛЫВАЮЩАЯ ПОДСКАЗКА С КУБКОМ === */
+        .trophy-tooltip {
+            position: relative;
+            cursor: help;
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .trophy-tooltip:hover {
+            transform: scale(1.2);
+        }
+
+        .trophy-text {
+            visibility: hidden;
+            width: 220px;
+            background-color: #9b59b6;
+            color: #fff;
             text-align: center;
-            box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
-        }
-
-        .best-drink .trophy {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-
-        .best-drink .text {
-            color: #d0c0e0;
-            font-size: 1.1em;
+            border-radius: 8px;
+            padding: 10px 15px;
+            position: absolute;
+            z-index: 10;
+            bottom: 130%; /* Расположение над иконкой */
+            left: 50%;
+            margin-left: -110px; /* Центрирование */
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            transform: translateY(10px);
+            font-size: 0.9em;
             font-weight: 600;
-            text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
+            pointer-events: none;
+        }
+
+        /* Стрелочка вниз у подсказки */
+        .trophy-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -6px;
+            border-width: 6px;
+            border-style: solid;
+            border-color: #9b59b6 transparent transparent transparent;
+        }
+
+        .trophy-tooltip:hover .trophy-text {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* === АДАПТИВНОСТЬ === */
@@ -260,6 +294,11 @@
             header h1 { font-size: 1.8em; }
             .ratings-container {
                 grid-template-columns: 1fr 1fr;
+            }
+            .trophy-text {
+                width: 180px;
+                margin-left: -90px;
+                font-size: 0.85em;
             }
         }
     </style>
@@ -287,63 +326,60 @@
         <div class="info-section">
             <!-- Две оценки -->
             <div class="info-block">
-                <h3>⭐ Моя оценка</h3>
+                <h3>Моя оценка</h3>
                 <div class="ratings-container">
                     <div class="rating-box">
-                        <div class="label"> Вкус</div>
+                        <div class="label">Вкус</div>
                         <div class="value">99/100</div>
                         <div class="subtitle">Почти идеально</div>
                     </div>
                     <div class="rating-box">
-                        <div class="label">🎨 Дизайн</div>
+                        <div class="label">Дизайн</div>
                         <div class="value">90/100</div>
                         <div class="subtitle">Стильно и качественно</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Лучший напиток -->
-            <div class="best-drink">
-                <div class="trophy">🏆</div>
-                <div class="text">Лучший напиток, который я пробовал!</div>
-            </div>
-
-            <!-- Описание вкуса -->
+            <!-- Описание вкуса с кубком -->
             <div class="info-block">
-                <h3>👅 Описание вкуса</h3>
+                <h3>
+                    Описание вкуса
+                    <span class="trophy-tooltip">🏆
+                        <span class="trophy-text">Лучший напиток, который я пробовал!</span>
+                    </span>
+                </h3>
                 <p>
-                    Прекрасный, насыщенный вкус винограда — в меру сладкий, без приторности. 
-                    Лёгкая, едва уловимая кислинка цитруса добавляет свежести и баланса. 
-                    Идеальная гармония между сладостью и кислотностью. Каждый глоток — 
-                    это чистое наслаждение сочным, спелым виноградом с приятным послевкусием.
+                    Прекрасный вкус винограда, в меру сладкий, без приторности. 
+                    Легкая кислинка цитруса добавляет свежести. 
+                    Идеальный баланс сладости и кислинки.
                 </p>
             </div>
 
             <!-- Дизайн -->
             <div class="info-block">
-                <h3>🎨 Дизайн банки</h3>
+                <h3>Дизайн банки</h3>
                 <p>
-                    Стильный дизайн линейки Ultra: фиолетовое основание с металлической 
-                    гравировкой. Логотип Monster выглядит как настоящее произведение искусства — 
-                    серебристые царапины на фиолетовом фоне создают ощущение премиальности. 
-                    Минималистично, но очень эффектно.
+                    Стильный дизайн линейки Ultra. Фиолетовое основание с металлической 
+                    гравировкой. Серебристые элементы на фиолетовом фоне создают 
+                    ощущение премиальности и минимализма.
                 </p>
             </div>
 
             <!-- Информация о покупке -->
             <div class="info-block">
-                <h3>📋 Информация</h3>
+                <h3>Информация</h3>
                 <ul class="details-list">
                     <li>
-                        <span class="label"> Дата покупки</span>
+                        <span class="label">Дата покупки</span>
                         <span class="value">24 сентября 2026</span>
                     </li>
                     <li>
-                        <span class="label">🏭 Изготовитель</span>
+                        <span class="label">Изготовитель</span>
                         <span class="value">Coca-Cola HBC Polska (Warszawa)</span>
                     </li>
                     <li>
-                        <span class="label"> Цена</span>
+                        <span class="label">Цена</span>
                         <span class="value">330 ₽</span>
                     </li>
                 </ul>
