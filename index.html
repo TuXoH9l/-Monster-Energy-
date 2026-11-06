@@ -11,17 +11,35 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #0a0a1a;
+            /* === НАСТРОЙКИ ФОНОВОЙ КАРТИНКИ === */
+            /* Когда загрузишь картинку, раскомментируй строки ниже и замени 'bg.jpg' на имя твоего файла */
+            /* background-image: url('bg.jpg'); */
+            /* background-size: cover; */
+            /* background-position: center; */
+            /* background-attachment: fixed; */
+            
             color: #e0e0e0;
             margin: 0;
             padding: 0;
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Затемнение фона, чтобы текст читался (если добавишь картинку) */
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 10, 26, 0.85); /* 0.85 — это степень затемнения. Чем больше, тем темнее */
+            z-index: -1;
+            pointer-events: none;
         }
 
         /* === ШАПКА === */
         header {
-            background: rgba(10, 10, 26, 0.95);
-            padding: 50px 20px;
+            background: rgba(10, 10, 26, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
             text-align: center;
             border-bottom: 2px solid #9b59b6;
             box-shadow: 0 0 30px rgba(155, 89, 182, 0.3);
@@ -30,7 +48,7 @@
         header h1 {
             margin: 0;
             font-family: 'Creepster', cursive;
-            font-size: 4em;
+            font-size: 3.5em;
             color: #9b59b6;
             text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
             letter-spacing: 5px;
@@ -39,291 +57,133 @@
         header p {
             color: #b0a0c0;
             font-size: 1.1em;
-            margin-top: 15px;
+            margin-top: 10px;
             letter-spacing: 1px;
         }
 
         /* === ПОИСК === */
-        .search-container {
-            display: flex;
-            justify-content: center;
-            padding: 25px 20px;
-        }
-
-        .search-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-        }
+        .search-container { display: flex; justify-content: center; padding: 20px; }
+        .search-wrapper { position: relative; width: 100%; max-width: 500px; }
 
         #searchInput {
-            width: 100%;
-            padding: 12px 40px 12px 20px;
-            background: rgba(26, 10, 46, 0.6);
-            border: 2px solid #9b59b6;
-            border-radius: 25px;
-            color: #fff;
-            font-size: 1em;
-            outline: none;
+            width: 100%; padding: 12px 40px 12px 20px;
+            background: rgba(26, 10, 46, 0.8);
+            border: 2px solid #9b59b6; border-radius: 25px;
+            color: #fff; font-size: 1em; outline: none;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(155, 89, 182, 0.2);
         }
-
-        #searchInput:focus {
-            box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
-            border-color: #bb79d6;
-        }
-
+        #searchInput:focus { box-shadow: 0 0 20px rgba(155, 89, 182, 0.6); border-color: #bb79d6; }
         #searchInput::placeholder { color: #6a5a7e; }
 
         #clearSearch {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #9b59b6;
-            font-size: 1.2em;
-            cursor: pointer;
-            display: none;
-            padding: 0;
-            line-height: 1;
-            transition: color 0.3s ease;
+            position: absolute; right: 15px; top: 50%; transform: translateY(-50%);
+            background: none; border: none; color: #9b59b6;
+            font-size: 1.2em; cursor: pointer; display: none;
         }
-
-        #clearSearch:hover { color: #fff; text-shadow: 0 0 5px #9b59b6; }
+        #clearSearch:hover { color: #fff; }
 
         /* === КНОПКИ ФИЛЬТРОВ === */
-        .filter-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            padding: 10px 20px 30px 20px;
-        }
-
+        .filter-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; padding: 10px 20px 25px 20px; }
         .filter-btn {
-            background: transparent;
-            border: 2px solid #9b59b6;
-            color: #9b59b6;
-            padding: 10px 25px;
-            font-size: 0.9em;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 25px;
-            cursor: pointer;
+            background: transparent; border: 2px solid #9b59b6; color: #9b59b6;
+            padding: 8px 20px; font-size: 0.9em; font-weight: bold;
+            text-transform: uppercase; border-radius: 25px; cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(155, 89, 182, 0.2);
         }
-
         .filter-btn:hover, .filter-btn.active {
-            background: rgba(155, 89, 182, 0.2);
-            box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
-            color: #fff;
-            transform: translateY(-2px);
+            background: rgba(155, 89, 182, 0.2); box-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
+            color: #fff; transform: translateY(-2px);
         }
 
-        /* === СЕТКА КАРТОЧЕК === */
+        /* === СЕТКА КАРТОЧЕК (Компактная) === */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px 40px 20px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            max-width: 1200px; margin: 0 auto; padding: 0 20px 40px 20px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Автоматически подстраивается */
+            gap: 20px;
         }
 
+        /* === КАРТОЧКА (Теперь это ссылка) === */
         .card {
-            background: rgba(26, 10, 46, 0.6);
+            display: block; /* Чтобы ссылка вела себя как блок */
+            text-decoration: none; /* Убираем подчёркивание ссылки */
+            background: rgba(26, 10, 46, 0.7);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             overflow: hidden;
             border: 2px solid #9b59b6;
-            box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
-            transition: all 0.4s ease;
-            opacity: 1;
-            transform: scale(1);
+            box-shadow: 0 0 15px rgba(155, 89, 182, 0.2);
+            transition: all 0.3s ease;
         }
 
         .card.fade-out { opacity: 0; transform: scale(0.9); }
         .card.hidden { display: none; }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0 40px rgba(155, 89, 182, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.5);
             border-color: #bb79d6;
         }
 
-        /* === ДВУХУРОВНЕВЫЕ НАЗВАНИЯ === */
+        /* === НАЗВАНИЯ === */
         .card-title {
-            margin: 0;
-            padding: 18px 20px 5px 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
+            margin: 0; padding: 12px 15px 5px 15px;
+            text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0;
         }
-
         .brand-name {
-            font-family: 'Creepster', cursive;
-            font-size: 1.1em;
-            color: #000000;
-            -webkit-text-stroke: 1px #9b59b6;
-            text-shadow: 0 0 8px rgba(155, 89, 182, 0.6);
-            letter-spacing: 2px;
-            transform: scaleX(0.95);
-            transform-origin: center;
+            font-family: 'Creepster', cursive; font-size: 0.9em;
+            color: #000000; -webkit-text-stroke: 1px #9b59b6;
+            text-shadow: 0 0 5px rgba(155, 89, 182, 0.6); letter-spacing: 1px;
         }
-
         .flavor-name {
-            font-family: 'Creepster', cursive;
-            font-size: 0.8em;
-            font-weight: normal;
-            letter-spacing: 2px;
-            transform: scaleX(0.9);
-            transform-origin: center;
-            text-shadow: 0 0 10px currentColor;
+            font-family: 'Creepster', cursive; font-size: 0.75em;
+            font-weight: normal; letter-spacing: 1px;
+            text-shadow: 0 0 8px currentColor;
         }
 
+        /* === ФОТО (Уменьшено) === */
         .card-image {
-            width: 100%;
-            height: 300px;
+            width: 100%; height: 200px; /* Было 300px */
             background-color: #000000;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            border-top: 2px solid #9b59b6;
-            border-bottom: 2px solid #9b59b6;
-            transition: box-shadow 0.4s ease;
+            display: flex; align-items: center; justify-content: center;
+            padding: 15px;
+            border-top: 2px solid #9b59b6; border-bottom: 2px solid #9b59b6;
         }
+        .card-image img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
-        .card-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.4s ease;
-        }
-
-        .card:hover .card-image { box-shadow: inset 0 0 30px rgba(155, 89, 182, 0.3); }
-        .card:hover .card-image img { transform: scale(1.08); }
-
+        /* === ОЦЕНКА (Компактная) === */
         .card-rating {
-            padding: 18px;
-            font-size: 1.6em;
-            font-weight: bold;
-            color: #9b59b6;
-            text-align: center;
-            text-shadow: 0 0 10px #9b59b6;
-            border-bottom: 1px solid #4a3a5e;
-        }
-
-        .card-comment {
-            padding: 12px 20px 18px 20px;
-            font-size: 0.95em;
-            color: #b0a0c0;
-            font-style: italic;
-            text-align: center;
-            min-height: 20px; /* Место для будущего описания */
-        }
-
-        /* === КНОПКА НАВЕРХ === */
-        #scrollTopBtn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: rgba(26, 10, 46, 0.8);
-            border: 2px solid #9b59b6;
-            color: #9b59b6;
-            font-size: 1.5em;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 15px rgba(155, 89, 182, 0.4);
-            transition: all 0.3s ease;
-            z-index: 100;
-        }
-
-        #scrollTopBtn:hover {
-            background: #9b59b6;
-            color: #fff;
-            box-shadow: 0 0 25px rgba(155, 89, 182, 0.8);
-            transform: translateY(-5px);
+            padding: 12px; font-size: 1.3em; /* Было 1.6em */
+            font-weight: bold; color: #9b59b6;
+            text-align: center; text-shadow: 0 0 8px #9b59b6;
         }
 
         /* === ПОДВАЛ === */
         footer {
-            text-align: center;
-            padding: 40px 30px;
-            color: #6a5a7e;
-            font-size: 1em;
-            border-top: 2px solid #9b59b6;
-            background: rgba(10, 10, 26, 0.95);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+            text-align: center; padding: 30px; color: #6a5a7e;
+            border-top: 2px solid #9b59b6; background: rgba(10, 10, 26, 0.95);
+            display: flex; flex-direction: column; align-items: center; gap: 15px;
         }
-
-        footer p {
-            margin: 0;
-            font-size: 1.05em;
-            letter-spacing: 1px;
-        }
-
+        footer p { margin: 0; font-size: 1em; }
         .tg-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            transition: all 0.3s ease;
-            padding: 12px 30px;
-            border: 2px solid #9b59b6;
-            border-radius: 30px;
-            background: rgba(155, 89, 182, 0.1);
-            box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+            display: inline-flex; align-items: center; gap: 8px;
+            color: #fff; text-decoration: none; font-weight: bold;
+            padding: 10px 25px; border: 2px solid #9b59b6; border-radius: 25px;
+            background: rgba(155, 89, 182, 0.1); transition: all 0.3s ease;
         }
-
-        .tg-link:hover {
-            background: rgba(155, 89, 182, 0.3);
-            box-shadow: 0 0 30px rgba(155, 89, 182, 0.6);
-            transform: translateY(-3px);
-        }
-
-        .tg-link svg {
-            width: 22px;
-            height: 22px;
-            fill: currentColor;
-        }
+        .tg-link:hover { background: rgba(155, 89, 182, 0.3); box-shadow: 0 0 20px rgba(155, 89, 182, 0.5); }
+        .tg-link svg { width: 20px; height: 20px; fill: currentColor; }
 
         /* === АДАПТИВНОСТЬ === */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.8em; }
-            header p { font-size: 1em; }
-            .container { grid-template-columns: 1fr; gap: 20px; }
-            .card-image { height: 260px; }
-            .brand-name { font-size: 0.95em; }
-            .flavor-name { font-size: 0.7em; }
-            #scrollTopBtn { width: 45px; height: 45px; bottom: 20px; right: 20px; }
-        }
-
-        @media (max-width: 480px) {
-            header h1 { font-size: 2.2em; }
+            header h1 { font-size: 2.5em; }
+            .container { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
+            .card-image { height: 160px; }
         }
     </style>
 </head>
 <body>
+
+    <div class="bg-overlay"></div>
 
     <header>
         <h1>Monster Energy</h1>
@@ -333,7 +193,7 @@
     <div class="search-container">
         <div class="search-wrapper">
             <input type="text" id="searchInput" placeholder="🔍 Найти банку...">
-            <button id="clearSearch" title="Очистить поиск">✕</button>
+            <button id="clearSearch">✕</button>
         </div>
     </div>
 
@@ -345,139 +205,115 @@
     </div>
 
     <div class="container">
-
-        <!-- Original -->
-        <div class="card" data-category="original">
+        <!-- Обрати внимание: теперь div class="card" обёрнут в тег <a href="..."> -->
+        
+        <a href="original.html" class="card" data-category="original">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
                 <span class="flavor-name" style="color: #84bd00;">ORIGINAL</span>
             </h2>
             <div class="card-image"><img src="original.jpg" alt="Original"></div>
             <div class="card-rating">50/100</div>
-            <div class="card-comment"></div>
-        </div>
+        </a>
 
-        <!-- Ultra Zero -->
-        <div class="card" data-category="ultra">
+        <a href="ultra_zero.html" class="card" data-category="ultra">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
                 <span class="flavor-name" style="color: #e0e0e0;">ULTRA ZERO</span>
             </h2>
             <div class="card-image"><img src="ultra_zero.jpg" alt="Ultra Zero"></div>
             <div class="card-rating">95/100</div>
-            <div class="card-comment"></div>
-        </div>
+        </a>
 
-        <!-- Ultra Rosé -->
-        <div class="card" data-category="ultra">
+        <a href="ultra_rose.html" class="card" data-category="ultra">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
                 <span class="flavor-name" style="color: #ff69b4;">ULTRA ROSÉ</span>
             </h2>
             <div class="card-image"><img src="ultra_rose.jpg" alt="Ultra Rosé"></div>
             <div class="card-rating">85/100</div>
-            <div class="card-comment"></div>
-        </div>
+        </a>
 
-        <!-- Ultra Strawberry Dreams -->
-        <div class="card" data-category="ultra">
+        <a href="ultra_strawberry.html" class="card" data-category="ultra">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
                 <span class="flavor-name" style="color: #ff4757;">ULTRA STRAWBERRY DREAMS</span>
             </h2>
             <div class="card-image"><img src="ultra_strawberry.jpg" alt="Strawberry"></div>
             <div class="card-rating">80/100</div>
-            <div class="card-comment"></div>
-        </div>
+        </a>
 
-        <!-- Ultra Violet -->
-        <div class="card" data-category="ultra">
+        <a href="ultra_violet.html" class="card" data-category="ultra">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
                 <span class="flavor-name" style="color: #9b59b6;">ULTRA VIOLET</span>
             </h2>
             <div class="card-image"><img src="ultra_violet.jpg" alt="Ultra Violet"></div>
             <div class="card-rating">99/100</div>
-            <div class="card-comment"></div>
-        </div>
+        </a>
 
-        <!-- Ultra Fantasy Ruby Red -->
-        <div class="card" data-category="ultra">
+        <a href="ultra_ruby_red.html" class="card" data-category="ultra">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
                 <span class="flavor-name" style="color: #e74c3c;">ULTRA FANTASY RUBY RED</span>
             </h2>
             <div class="card-image"><img src="ultra_ruby_red.jpg" alt="Ruby Red"></div>
             <div class="card-rating">70/100</div>
-            <div class="card-comment"></div>
-        </div>
+        </a>
 
-        <!-- Pipeline Punch -->
-        <div class="card" data-category="juiced">
+        <a href="pipeline_punch.html" class="card" data-category="juiced">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
                 <span class="flavor-name" style="color: #ff6b81;">PIPELINE PUNCH</span>
             </h2>
             <div class="card-image"><img src="pipeline_punch.jpg" alt="Pipeline Punch"></div>
             <div class="card-rating">75/100</div>
-            <div class="card-comment"></div>
-        </div>
+        </a>
 
-        <!-- Mango Loco -->
-        <div class="card" data-category="juiced">
+        <a href="mango_loco.html" class="card" data-category="juiced">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
                 <span class="flavor-name" style="color: #3498db;">MANGO LOCO</span>
             </h2>
             <div class="card-image"><img src="mango_loco.jpg" alt="Mango Loco"></div>
             <div class="card-rating">78/100</div>
-            <div class="card-comment"></div>
-        </div>
+        </a>
 
-        <!-- Bad Apple -->
-        <div class="card" data-category="juiced">
+        <a href="bad_apple.html" class="card" data-category="juiced">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
                 <span class="flavor-name" style="color: #c0392b;">BAD APPLE</span>
             </h2>
             <div class="card-image"><img src="bad_apple.jpg" alt="Bad Apple"></div>
             <div class="card-rating">87/100</div>
-            <div class="card-comment"></div>
-        </div>
+        </a>
 
-        <!-- Full Throttle -->
-        <div class="card" data-category="original">
+        <a href="full_throttle.html" class="card" data-category="original">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
                 <span class="flavor-name" style="color: #f1c40f;">FULL THROTTLE</span>
             </h2>
             <div class="card-image"><img src="full_throttle.jpg" alt="Full Throttle"></div>
             <div class="card-rating">93/100</div>
-            <div class="card-comment"></div>
-        </div>
+        </a>
 
-        <!-- Monarch -->
-        <div class="card" data-category="juiced">
+        <a href="monarch.html" class="card" data-category="juiced">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
                 <span class="flavor-name" style="color: #e67e22;">MONARCH</span>
             </h2>
             <div class="card-image"><img src="monarch.jpg" alt="Monarch"></div>
             <div class="card-rating">96/100</div>
-            <div class="card-comment"></div>
-        </div>
+        </a>
 
-        <!-- Ultra Fiesta Mango -->
-        <div class="card" data-category="ultra">
+        <a href="ultra_fiesta.html" class="card" data-category="ultra">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
                 <span class="flavor-name" style="color: #1abc9c;">ULTRA FIESTA MANGO</span>
             </h2>
             <div class="card-image"><img src="ultra_fiesta.jpg" alt="Fiesta Mango"></div>
             <div class="card-rating">90/100</div>
-            <div class="card-comment"></div>
-        </div>
-
+        </a>
     </div>
 
     <footer>
@@ -488,8 +324,6 @@
         </a>
     </footer>
 
-    <button id="scrollTopBtn" title="Наверх">↑</button>
-
     <script>
         const searchInput = document.getElementById('searchInput');
         const clearSearch = document.getElementById('clearSearch');
@@ -499,33 +333,21 @@
         function performSearch() {
             const searchText = searchInput.value.toLowerCase();
             clearSearch.style.display = searchText.length > 0 ? 'block' : 'none';
-            
             cards.forEach(card => {
                 const title = card.querySelector('.card-title').textContent.toLowerCase();
-                if (title.includes(searchText)) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
+                if (title.includes(searchText)) { card.classList.remove('hidden'); } 
+                else { card.classList.add('hidden'); }
             });
         }
 
         searchInput.addEventListener('input', performSearch);
-
-        clearSearch.addEventListener('click', () => {
-            searchInput.value = '';
-            performSearch();
-            searchInput.focus();
-        });
+        clearSearch.addEventListener('click', () => { searchInput.value = ''; performSearch(); searchInput.focus(); });
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                
-                searchInput.value = '';
-                performSearch();
-
+                searchInput.value = ''; performSearch();
                 const filter = btn.getAttribute('data-filter');
                 cards.forEach(card => {
                     const category = card.getAttribute('data-category');
@@ -534,22 +356,10 @@
                         setTimeout(() => card.classList.remove('fade-out'), 10);
                     } else {
                         card.classList.add('fade-out');
-                        setTimeout(() => card.classList.add('hidden'), 400);
+                        setTimeout(() => card.classList.add('hidden'), 300);
                     }
                 });
             });
-        });
-
-        const scrollTopBtn = document.getElementById('scrollTopBtn');
-        window.onscroll = function() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                scrollTopBtn.style.display = "flex";
-            } else {
-                scrollTopBtn.style.display = "none";
-            }
-        };
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
