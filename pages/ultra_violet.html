@@ -1,1 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultra Violet | Monster Energy Catalog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a1a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* === ШАПКА === */
+        header {
+            background: rgba(10, 10, 26, 0.95);
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 2px solid #9b59b6;
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Creepster', cursive;
+            font-size: 3em;
+            color: #9b59b6;
+            text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+            letter-spacing: 3px;
+        }
+
+        /* === КНОПКА НАЗАД === */
+        .back-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: rgba(155, 89, 182, 0.2);
+            border: 2px solid #9b59b6;
+            border-radius: 25px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(155, 89, 182, 0.4);
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* === ОСНОВНОЙ КОНТЕНТ === */
+        .content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        /* === ФОТО И ГИФКА === */
+        .media-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-photo {
+            width: 100%;
+            height: 400px;
+            background: #000;
+            border: 2px solid #9b59b6;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+        }
+
+        .main-photo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .gif-placeholder {
+            width: 100%;
+            height: 200px;
+            background: rgba(26, 10, 46, 0.6);
+            border: 2px dashed #9b59b6;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6a5a7e;
+            font-style: italic;
+        }
+
+        /* === ИНФОРМАЦИЯ === */
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-block {
+            background: rgba(26, 10, 46, 0.6);
+            border: 2px solid #9b59b6;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(155, 89, 182, 0.2);
+        }
+
+        .info-block h3 {
+            margin: 0 0 10px 0;
+            color: #9b59b6;
+            font-size: 1.2em;
+            text-shadow: 0 0 8px rgba(155, 89, 182, 0.5);
+        }
+
+        .info-block p {
+            margin: 0;
+            color: #b0a0c0;
+            font-size: 1em;
+        }
+
+        .rating-display {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #9b59b6;
+            text-align: center;
+            text-shadow: 0 0 15px #9b59b6;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .detail-item {
+            background: rgba(10, 10, 26, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .detail-item .label {
+            color: #6a5a7e;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .detail-item .value {
+            color: #fff;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        /* === АДАПТИВНОСТЬ === */
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .main-photo { height: 300px; }
+            header h1 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ULTRA VIOLET</h1>
+        <a href="../index.html" class="back-btn">← Назад к каталогу</a>
+    </header>
+
+    <div class="content">
+        <!-- Левая колонка: Фото и Гифка -->
+        <div class="media-section">
+            <div class="main-photo">
+                <img src="../img/ultra_violet.jpg" alt="Ultra Violet">
+            </div>
+            <div class="gif-placeholder">
+                [Место для 3D гифки]
+            </div>
+        </div>
+
+        <!-- Правая колонка: Информация -->
+        <div class="info-section">
+            <!-- Оценка -->
+            <div class="info-block">
+                <h3>Оценка</h3>
+                <div class="rating-display">99/100</div>
+            </div>
+
+            <!-- Описание -->
+            <div class="info-block">
+                <h3>Описание вкуса</h3>
+                <p>Официально — лёгкий цитрус и виноград. На деле — чистый, сочный хрустящий виноград без навязчивой кислинки. Мега хорош. Буду надеяться, что будет ещё что-то вкуснее, но переплюнуть будет трудно.</p>
+            </div>
+
+            <!-- Детали -->
+            <div class="info-block">
+                <h3>Детали</h3>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <div class="label">Дата покупки</div>
+                        <div class="value">—</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="label">Место покупки</div>
+                        <div class="value">—</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="label">Страна</div>
+                        <div class="value">—</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="label">Цена</div>
+                        <div class="value">—</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
