@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Коллекция TuXoH9l | Monster Energy Catalog</title>
     <link rel="icon" href="favicon.jpg" type="image/jpeg">
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1a1a1a; /* Тёмно-серый фон */
+            background-color: #1a1a1a;
             color: #e0e0e0;
             margin: 0;
             padding: 0;
@@ -19,36 +19,47 @@
             overflow-x: hidden;
         }
 
-        /* === ШАПКА (Тёмно-серая) === */
+        /* === ШАПКА === */
         header {
             background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
             border-bottom: 2px solid #555555;
-            box-shadow: 0 0 30px rgba(85, 85, 85, 0.3);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
         }
 
         header h1 {
             margin: 0;
             font-family: 'Creepster', cursive;
-            font-size: 4em;
-            color: #e0e0e0; /* Серебристый цвет */
-            text-shadow: 0 0 10px #e0e0e0, 0 0 20px rgba(224, 224, 224, 0.5);
-            letter-spacing: 5px;
+            font-size: 4.5em;
+            color: #e0e0e0;
+            text-shadow: 0 0 10px rgba(224, 224, 224, 0.8), 0 0 30px rgba(155, 89, 182, 0.4);
+            letter-spacing: 4px;
+            line-height: 1.1;
         }
 
-        header p {
+        .header-subtitle {
+            max-width: 600px;
+            margin: 20px auto 0 auto;
+            font-size: 1.15em;
             color: #aaaaaa;
-            font-size: 1.1em;
-            margin-top: 15px;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+            border-top: 1px solid #444444;
+            padding-top: 20px;
+            font-weight: 400;
+        }
+
+        .header-subtitle strong {
+            color: #e0e0e0;
+            font-weight: 600;
         }
 
         /* === ПОИСК === */
         .search-container {
             display: flex;
             justify-content: center;
-            padding: 25px 20px;
+            padding: 30px 20px;
         }
 
         .search-wrapper {
@@ -59,10 +70,10 @@
 
         #searchInput {
             width: 100%;
-            padding: 12px 40px 12px 20px;
+            padding: 14px 45px 14px 25px;
             background: rgba(42, 42, 42, 0.8);
             border: 2px solid #555555;
-            border-radius: 25px;
+            border-radius: 30px;
             color: #fff;
             font-size: 1em;
             outline: none;
@@ -70,15 +81,16 @@
         }
 
         #searchInput:focus {
-            box-shadow: 0 0 20px rgba(224, 224, 224, 0.4);
+            box-shadow: 0 0 20px rgba(224, 224, 224, 0.3);
             border-color: #e0e0e0;
+            background: rgba(42, 42, 42, 1);
         }
 
         #searchInput::placeholder { color: #888888; }
 
         #clearSearch {
             position: absolute;
-            right: 15px;
+            right: 20px;
             top: 50%;
             transform: translateY(-50%);
             background: none;
@@ -118,10 +130,10 @@
         }
 
         .filter-btn:hover, .filter-btn.active {
-            background: rgba(224, 224, 224, 0.2);
+            background: rgba(224, 224, 224, 0.15);
             border-color: #e0e0e0;
             color: #fff;
-            box-shadow: 0 0 15px rgba(224, 224, 224, 0.3);
+            box-shadow: 0 0 15px rgba(224, 224, 224, 0.2);
             transform: translateY(-2px);
         }
 
@@ -132,18 +144,19 @@
             padding: 0 20px 40px 20px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         /* === КАРТОЧКА === */
         .card {
             display: block;
             text-decoration: none;
-            background: rgba(42, 42, 42, 0.8);
+            background: rgba(42, 42, 42, 0.6);
+            backdrop-filter: blur(5px);
             border-radius: 15px;
             overflow: hidden;
-            border: 2px solid #444444;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #444444;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
             cursor: pointer;
         }
@@ -153,33 +166,34 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 25px rgba(224, 224, 224, 0.2);
-            border-color: #e0e0e0;
+            box-shadow: 0 8px 25px rgba(224, 224, 224, 0.15);
+            border-color: #888888;
         }
 
         .card-title {
             margin: 0;
-            padding: 12px 15px 10px 15px;
+            padding: 15px 15px 10px 15px;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0;
+            gap: 2px;
         }
 
         .brand-name {
             font-family: 'Creepster', cursive;
-            font-size: 0.9em;
+            font-size: 0.95em;
             color: #000000;
             -webkit-text-stroke: 1px #888888;
             letter-spacing: 1px;
         }
 
         .flavor-name {
-            font-family: 'Creepster', cursive;
-            font-size: 0.75em;
-            font-weight: normal;
-            letter-spacing: 1px;
+            font-family: 'Segoe UI', sans-serif; /* Сделала шрифт вкуса более читаемым */
+            font-size: 0.85em;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             text-shadow: 0 0 8px currentColor;
         }
 
@@ -191,61 +205,91 @@
             align-items: center;
             justify-content: center;
             padding: 15px;
-            border-top: 2px solid #444444;
-            border-bottom: 2px solid #444444;
+            border-top: 1px solid #444444;
+            border-bottom: 1px solid #444444;
         }
 
         .card-image img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover .card-image img {
+            transform: scale(1.05);
         }
 
         /* === ПОДВАЛ === */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 50px 20px 30px 20px;
             color: #888888;
             border-top: 2px solid #444444;
-            background: #1a1a1a;
+            background: linear-gradient(to top, #111111, #1a1a1a);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
 
-        footer p { margin: 0; font-size: 1em; }
+        .footer-text {
+            font-size: 1.1em;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-text span {
+            color: #e0e0e0;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(224, 224, 224, 0.3);
+        }
 
         .tg-link {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            color: #e0e0e0;
+            gap: 10px;
+            color: #fff;
             text-decoration: none;
             font-weight: bold;
-            padding: 10px 25px;
+            padding: 12px 30px;
             border: 2px solid #555555;
-            border-radius: 25px;
+            border-radius: 30px;
             background: rgba(42, 42, 42, 0.8);
             transition: all 0.3s ease;
+            animation: pulse-glow 3s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(224, 224, 224, 0.1); }
+            50% { box-shadow: 0 0 20px rgba(224, 224, 224, 0.3); }
         }
 
         .tg-link:hover {
             border-color: #e0e0e0;
-            box-shadow: 0 0 15px rgba(224, 224, 224, 0.3);
+            background: rgba(224, 224, 224, 0.1);
+            transform: translateY(-3px);
         }
 
         .tg-link svg { width: 20px; height: 20px; fill: currentColor; }
 
+        .copyright {
+            font-size: 0.85em;
+            color: #555555;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
         /* === АДАПТИВНОСТЬ === */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.5em; }
+            header h1 { font-size: 3em; }
+            .header-subtitle { font-size: 1em; padding: 15px 10px 0 10px; }
             .container { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
             .card-image { height: 160px; }
         }
 
         @media (max-width: 480px) {
-            header h1 { font-size: 2.2em; }
+            header h1 { font-size: 2.5em; }
+            header { padding: 40px 15px; }
         }
     </style>
 </head>
@@ -253,7 +297,10 @@
 
     <header>
         <h1>TuXoH9l's ChaNNeL</h1>
-        <p>Тут собрана коллекция вкусов Monster Energy, которые я попробовал, а так же их оценка по моему мнению</p>
+        <p class="header-subtitle">
+            Личный архив дегустаций <strong>Monster Energy</strong>.<br>
+            Честные оценки, редкие находки и мой уникальный взгляд на каждый вкус.
+        </p>
     </header>
 
     <div class="search-container">
@@ -395,11 +442,12 @@
     </div>
 
     <footer>
-        <p>Личный архив и каталог вкусов TuXoH9l's ChaNNeL. Телеграм канал:</p>
+        <p class="footer-text">Личный архив дегустаций <span>TuXoH9l's ChaNNeL</span></p>
         <a href="https://t.me/TuXoH9l_696" target="_blank" class="tg-link">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.477-1.635.099-.002.321.023.465.141.121.099.154.232.17.325.015.093.034.305.019.471z"/></svg>
-            Подписаться
+            Подписаться на канал
         </a>
+        <p class="copyright">© 2026 TuXoH9l. Все права на мои мнения защищены.</p>
     </footer>
 
     <script>
