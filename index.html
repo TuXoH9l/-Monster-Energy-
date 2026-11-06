@@ -16,10 +16,8 @@
             padding: 0;
             line-height: 1.6;
             overflow-x: hidden;
-            position: relative;
         }
 
-        /* === ШАПКА === */
         header {
             background: rgba(10, 10, 26, 0.95);
             padding: 50px 20px;
@@ -44,7 +42,6 @@
             letter-spacing: 1px;
         }
 
-        /* === ПОИСК === */
         .search-container {
             display: flex;
             justify-content: center;
@@ -95,7 +92,6 @@
 
         #clearSearch:hover { color: #fff; text-shadow: 0 0 5px #9b59b6; }
 
-        /* === КНОПКИ ФИЛЬТРОВ === */
         .filter-container {
             display: flex;
             justify-content: center;
@@ -126,7 +122,6 @@
             transform: translateY(-2px);
         }
 
-        /* === СЕТКА КАРТОЧЕК === */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -136,7 +131,6 @@
             gap: 20px;
         }
 
-        /* === КАРТОЧКА (ссылка) === */
         .card {
             display: block;
             text-decoration: none;
@@ -147,6 +141,7 @@
             border: 2px solid #9b59b6;
             box-shadow: 0 0 15px rgba(155, 89, 182, 0.2);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .card.fade-out { opacity: 0; transform: scale(0.9); }
@@ -158,10 +153,9 @@
             border-color: #bb79d6;
         }
 
-        /* === НАЗВАНИЯ === */
         .card-title {
             margin: 0;
-            padding: 12px 15px 5px 15px;
+            padding: 12px 15px 10px 15px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -186,7 +180,6 @@
             text-shadow: 0 0 8px currentColor;
         }
 
-        /* === ФОТО === */
         .card-image {
             width: 100%;
             height: 200px;
@@ -205,17 +198,6 @@
             object-fit: contain;
         }
 
-        /* === ОЦЕНКА === */
-        .card-rating {
-            padding: 12px;
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #9b59b6;
-            text-align: center;
-            text-shadow: 0 0 8px #9b59b6;
-        }
-
-        /* === ПОДВАЛ === */
         footer {
             text-align: center;
             padding: 30px;
@@ -228,10 +210,7 @@
             gap: 15px;
         }
 
-        footer p {
-            margin: 0;
-            font-size: 1em;
-        }
+        footer p { margin: 0; font-size: 1em; }
 
         .tg-link {
             display: inline-flex;
@@ -252,13 +231,8 @@
             box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
         }
 
-        .tg-link svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-        }
+        .tg-link svg { width: 20px; height: 20px; fill: currentColor; }
 
-        /* === АДАПТИВНОСТЬ === */
         @media (max-width: 768px) {
             header h1 { font-size: 2.5em; }
             .container { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
@@ -293,7 +267,6 @@
 
     <div class="container">
 
-        <!-- Original -->
         <a href="pages/original.html" class="card" data-category="original">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
@@ -302,10 +275,8 @@
             <div class="card-image">
                 <img src="img/original.jpg" alt="Original">
             </div>
-            <div class="card-rating">50/100</div>
         </a>
 
-        <!-- Ultra Zero -->
         <a href="pages/ultra_zero.html" class="card" data-category="ultra">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
@@ -314,10 +285,8 @@
             <div class="card-image">
                 <img src="img/ultra_zero.jpg" alt="Ultra Zero">
             </div>
-            <div class="card-rating">95/100</div>
         </a>
 
-        <!-- Ultra Rosé -->
         <a href="pages/ultra_rose.html" class="card" data-category="ultra">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
@@ -326,10 +295,8 @@
             <div class="card-image">
                 <img src="img/ultra_rose.jpg" alt="Ultra Rosé">
             </div>
-            <div class="card-rating">85/100</div>
         </a>
 
-        <!-- Ultra Strawberry Dreams -->
         <a href="pages/ultra_strawberry.html" class="card" data-category="ultra">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
@@ -338,10 +305,8 @@
             <div class="card-image">
                 <img src="img/ultra_strawberry.jpg" alt="Strawberry">
             </div>
-            <div class="card-rating">80/100</div>
         </a>
 
-        <!-- Ultra Violet -->
         <a href="pages/ultra_violet.html" class="card" data-category="ultra">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
@@ -350,10 +315,8 @@
             <div class="card-image">
                 <img src="img/ultra_violet.jpg" alt="Ultra Violet">
             </div>
-            <div class="card-rating">99/100</div>
         </a>
 
-        <!-- Ultra Fantasy Ruby Red -->
         <a href="pages/ultra_ruby_red.html" class="card" data-category="ultra">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
@@ -362,10 +325,8 @@
             <div class="card-image">
                 <img src="img/ultra_ruby_red.jpg" alt="Ruby Red">
             </div>
-            <div class="card-rating">70/100</div>
         </a>
 
-        <!-- Pipeline Punch -->
         <a href="pages/pipeline_punch.html" class="card" data-category="juiced">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
@@ -374,10 +335,8 @@
             <div class="card-image">
                 <img src="img/pipeline_punch.jpg" alt="Pipeline Punch">
             </div>
-            <div class="card-rating">75/100</div>
         </a>
 
-        <!-- Mango Loco -->
         <a href="pages/mango_loco.html" class="card" data-category="juiced">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
@@ -386,10 +345,8 @@
             <div class="card-image">
                 <img src="img/mango_loco.jpg" alt="Mango Loco">
             </div>
-            <div class="card-rating">78/100</div>
         </a>
 
-        <!-- Bad Apple -->
         <a href="pages/bad_apple.html" class="card" data-category="juiced">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
@@ -398,10 +355,8 @@
             <div class="card-image">
                 <img src="img/bad_apple.jpg" alt="Bad Apple">
             </div>
-            <div class="card-rating">87/100</div>
         </a>
 
-        <!-- Full Throttle -->
         <a href="pages/full_throttle.html" class="card" data-category="original">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
@@ -410,10 +365,8 @@
             <div class="card-image">
                 <img src="img/full_throttle.jpg" alt="Full Throttle">
             </div>
-            <div class="card-rating">93/100</div>
         </a>
 
-        <!-- Monarch -->
         <a href="pages/monarch.html" class="card" data-category="juiced">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
@@ -422,10 +375,8 @@
             <div class="card-image">
                 <img src="img/monarch.jpg" alt="Monarch">
             </div>
-            <div class="card-rating">96/100</div>
         </a>
 
-        <!-- Ultra Fiesta Mango -->
         <a href="pages/ultra_fiesta.html" class="card" data-category="ultra">
             <h2 class="card-title">
                 <span class="brand-name">MONSTER ENERGY</span>
@@ -434,7 +385,6 @@
             <div class="card-image">
                 <img src="img/ultra_fiesta.jpg" alt="Fiesta Mango">
             </div>
-            <div class="card-rating">90/100</div>
         </a>
 
     </div>
