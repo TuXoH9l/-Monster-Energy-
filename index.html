@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Коллекция TuXoH9l | Monster Energy Catalog</title>
+    <link rel="icon" href="favicon.jpg" type="image/jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0a0a1a;
+            background-color: #1a1a1a; /* Тёмно-серый фон */
             color: #e0e0e0;
             margin: 0;
             padding: 0;
@@ -18,30 +19,32 @@
             overflow-x: hidden;
         }
 
+        /* === ШАПКА (Тёмно-серая) === */
         header {
-            background: rgba(10, 10, 26, 0.95);
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
             padding: 50px 20px;
             text-align: center;
-            border-bottom: 2px solid #9b59b6;
-            box-shadow: 0 0 30px rgba(155, 89, 182, 0.3);
+            border-bottom: 2px solid #555555;
+            box-shadow: 0 0 30px rgba(85, 85, 85, 0.3);
         }
 
         header h1 {
             margin: 0;
             font-family: 'Creepster', cursive;
             font-size: 4em;
-            color: #9b59b6;
-            text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+            color: #e0e0e0; /* Серебристый цвет */
+            text-shadow: 0 0 10px #e0e0e0, 0 0 20px rgba(224, 224, 224, 0.5);
             letter-spacing: 5px;
         }
 
         header p {
-            color: #b0a0c0;
+            color: #aaaaaa;
             font-size: 1.1em;
             margin-top: 15px;
             letter-spacing: 1px;
         }
 
+        /* === ПОИСК === */
         .search-container {
             display: flex;
             justify-content: center;
@@ -57,22 +60,21 @@
         #searchInput {
             width: 100%;
             padding: 12px 40px 12px 20px;
-            background: rgba(26, 10, 46, 0.6);
-            border: 2px solid #9b59b6;
+            background: rgba(42, 42, 42, 0.8);
+            border: 2px solid #555555;
             border-radius: 25px;
             color: #fff;
             font-size: 1em;
             outline: none;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(155, 89, 182, 0.2);
         }
 
         #searchInput:focus {
-            box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
-            border-color: #bb79d6;
+            box-shadow: 0 0 20px rgba(224, 224, 224, 0.4);
+            border-color: #e0e0e0;
         }
 
-        #searchInput::placeholder { color: #6a5a7e; }
+        #searchInput::placeholder { color: #888888; }
 
         #clearSearch {
             position: absolute;
@@ -81,7 +83,7 @@
             transform: translateY(-50%);
             background: none;
             border: none;
-            color: #9b59b6;
+            color: #aaaaaa;
             font-size: 1.2em;
             cursor: pointer;
             display: none;
@@ -90,8 +92,9 @@
             transition: color 0.3s ease;
         }
 
-        #clearSearch:hover { color: #fff; text-shadow: 0 0 5px #9b59b6; }
+        #clearSearch:hover { color: #fff; }
 
+        /* === КНОПКИ ФИЛЬТРОВ === */
         .filter-container {
             display: flex;
             justify-content: center;
@@ -102,8 +105,8 @@
 
         .filter-btn {
             background: transparent;
-            border: 2px solid #9b59b6;
-            color: #9b59b6;
+            border: 2px solid #555555;
+            color: #aaaaaa;
             padding: 10px 25px;
             font-size: 0.9em;
             font-weight: bold;
@@ -112,16 +115,17 @@
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(155, 89, 182, 0.2);
         }
 
         .filter-btn:hover, .filter-btn.active {
-            background: rgba(155, 89, 182, 0.2);
-            box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
+            background: rgba(224, 224, 224, 0.2);
+            border-color: #e0e0e0;
             color: #fff;
+            box-shadow: 0 0 15px rgba(224, 224, 224, 0.3);
             transform: translateY(-2px);
         }
 
+        /* === СЕТКА КАРТОЧЕК === */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -131,15 +135,15 @@
             gap: 20px;
         }
 
+        /* === КАРТОЧКА === */
         .card {
             display: block;
             text-decoration: none;
-            background: rgba(26, 10, 46, 0.7);
-            backdrop-filter: blur(10px);
+            background: rgba(42, 42, 42, 0.8);
             border-radius: 15px;
             overflow: hidden;
-            border: 2px solid #9b59b6;
-            box-shadow: 0 0 15px rgba(155, 89, 182, 0.2);
+            border: 2px solid #444444;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
             cursor: pointer;
         }
@@ -149,8 +153,8 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(155, 89, 182, 0.5);
-            border-color: #bb79d6;
+            box-shadow: 0 0 25px rgba(224, 224, 224, 0.2);
+            border-color: #e0e0e0;
         }
 
         .card-title {
@@ -167,8 +171,7 @@
             font-family: 'Creepster', cursive;
             font-size: 0.9em;
             color: #000000;
-            -webkit-text-stroke: 1px #9b59b6;
-            text-shadow: 0 0 5px rgba(155, 89, 182, 0.6);
+            -webkit-text-stroke: 1px #888888;
             letter-spacing: 1px;
         }
 
@@ -188,8 +191,8 @@
             align-items: center;
             justify-content: center;
             padding: 15px;
-            border-top: 2px solid #9b59b6;
-            border-bottom: 2px solid #9b59b6;
+            border-top: 2px solid #444444;
+            border-bottom: 2px solid #444444;
         }
 
         .card-image img {
@@ -198,12 +201,13 @@
             object-fit: contain;
         }
 
+        /* === ПОДВАЛ === */
         footer {
             text-align: center;
             padding: 30px;
-            color: #6a5a7e;
-            border-top: 2px solid #9b59b6;
-            background: rgba(10, 10, 26, 0.95);
+            color: #888888;
+            border-top: 2px solid #444444;
+            background: #1a1a1a;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -216,23 +220,24 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: #fff;
+            color: #e0e0e0;
             text-decoration: none;
             font-weight: bold;
             padding: 10px 25px;
-            border: 2px solid #9b59b6;
+            border: 2px solid #555555;
             border-radius: 25px;
-            background: rgba(155, 89, 182, 0.1);
+            background: rgba(42, 42, 42, 0.8);
             transition: all 0.3s ease;
         }
 
         .tg-link:hover {
-            background: rgba(155, 89, 182, 0.3);
-            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+            border-color: #e0e0e0;
+            box-shadow: 0 0 15px rgba(224, 224, 224, 0.3);
         }
 
         .tg-link svg { width: 20px; height: 20px; fill: currentColor; }
 
+        /* === АДАПТИВНОСТЬ === */
         @media (max-width: 768px) {
             header h1 { font-size: 2.5em; }
             .container { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
