@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultra Violet | Monster Energy Catalog</title>
+    <title>Monster Energy Ultra Violet | TuXoH9l's Catalog</title>
+    <link rel="icon" href="../favicon.jpg" type="image/jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; }
@@ -19,23 +20,23 @@
 
         /* === ШАПКА === */
         header {
-            background: rgba(10, 10, 26, 0.95);
+            background: linear-gradient(135deg, #1a0a2e 0%, #0a0a1a 100%);
             padding: 30px 20px;
             text-align: center;
             border-bottom: 2px solid #9b59b6;
-            box-shadow: 0 0 30px rgba(155, 89, 182, 0.3);
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.4);
         }
 
         header h1 {
             margin: 0;
             font-family: 'Creepster', cursive;
-            font-size: 3em;
-            color: #9b59b6;
-            text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
-            letter-spacing: 3px;
+            font-size: 2.8em;
+            color: #000000;
+            -webkit-text-stroke: 1.5px #9b59b6;
+            text-shadow: 0 0 15px rgba(155, 89, 182, 0.6);
+            letter-spacing: 4px;
         }
 
-        /* === КНОПКА НАЗАД === */
         .back-btn {
             display: inline-block;
             margin-top: 15px;
@@ -57,15 +58,15 @@
 
         /* === ОСНОВНОЙ КОНТЕНТ === */
         .content {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 40px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 30px;
         }
 
-        /* === ФОТО И ГИФКА === */
+        /* === ЛЕВАЯ КОЛОНКА === */
         .media-section {
             display: flex;
             flex-direction: column;
@@ -73,6 +74,7 @@
         }
 
         .main-photo {
+            position: relative;
             width: 100%;
             height: 400px;
             background: #000;
@@ -91,7 +93,20 @@
             object-fit: contain;
         }
 
-        .gif-placeholder {
+        .volume-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(155, 89, 182, 0.9);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            box-shadow: 0 0 10px rgba(155, 89, 182, 0.6);
+        }
+
+        .gif-container {
             width: 100%;
             height: 200px;
             background: rgba(26, 10, 46, 0.6);
@@ -100,11 +115,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
+        }
+
+        .gif-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .gif-placeholder-text {
             color: #6a5a7e;
             font-style: italic;
         }
 
-        /* === ИНФОРМАЦИЯ === */
+        /* === ПРАВАЯ КОЛОНКА === */
         .info-section {
             display: flex;
             flex-direction: column;
@@ -132,37 +157,64 @@
             font-size: 1em;
         }
 
-        .rating-display {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #9b59b6;
-            text-align: center;
-            text-shadow: 0 0 15px #9b59b6;
-        }
-
-        .details-grid {
+        /* === ДВЕ ОЦЕНКИ === */
+        .ratings-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
         }
 
-        .detail-item {
+        .rating-box {
             background: rgba(10, 10, 26, 0.8);
+            border: 2px solid #9b59b6;
+            border-radius: 12px;
             padding: 15px;
-            border-radius: 10px;
             text-align: center;
         }
 
-        .detail-item .label {
+        .rating-box .label {
             color: #6a5a7e;
             font-size: 0.9em;
             margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .detail-item .value {
-            color: #fff;
-            font-size: 1.1em;
+        .rating-box .value {
+            font-size: 2em;
             font-weight: bold;
+            color: #9b59b6;
+            text-shadow: 0 0 10px #9b59b6;
+        }
+
+        /* === СПИСОК ДЕТАЛЕЙ === */
+        .details-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .details-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(155, 89, 182, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .details-list li:last-child {
+            border-bottom: none;
+        }
+
+        .details-list .label {
+            color: #6a5a7e;
+            font-size: 0.95em;
+        }
+
+        .details-list .value {
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.05em;
         }
 
         /* === АДАПТИВНОСТЬ === */
@@ -172,34 +224,47 @@
                 gap: 20px;
             }
             .main-photo { height: 300px; }
-            header h1 { font-size: 2em; }
+            header h1 { font-size: 1.8em; }
+            .ratings-container {
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>ULTRA VIOLET</h1>
+        <h1>MONSTER ENERGY ULTRA VIOLET</h1>
         <a href="../index.html" class="back-btn">← Назад к каталогу</a>
     </header>
 
     <div class="content">
-        <!-- Левая колонка: Фото и Гифка -->
+        <!-- Левая колонка -->
         <div class="media-section">
             <div class="main-photo">
+                <span class="volume-badge">0.5 л</span>
                 <img src="../img/ultra_violet.jpg" alt="Ultra Violet">
             </div>
-            <div class="gif-placeholder">
-                [Место для гифки]
+            <div class="gif-container">
+                <span class="gif-placeholder-text">[Место для гифки]</span>
             </div>
         </div>
 
-        <!-- Правая колонка: Информация -->
+        <!-- Правая колонка -->
         <div class="info-section">
-            <!-- Оценка -->
+            <!-- Две оценки -->
             <div class="info-block">
                 <h3>Оценка</h3>
-                <div class="rating-display">99/100</div>
+                <div class="ratings-container">
+                    <div class="rating-box">
+                        <div class="label">Вкус</div>
+                        <div class="value">99/100</div>
+                    </div>
+                    <div class="rating-box">
+                        <div class="label">Дизайн</div>
+                        <div class="value">—</div>
+                    </div>
+                </div>
             </div>
 
             <!-- Описание -->
@@ -208,27 +273,23 @@
                 <p>Официально — лёгкий цитрус и виноград. На деле — чистый, сочный хрустящий виноград без навязчивой кислинки. Мега хорош. Буду надеяться, что будет ещё что-то вкуснее, но переплюнуть будет трудно.</p>
             </div>
 
-            <!-- Детали -->
+            <!-- Информация -->
             <div class="info-block">
-                <h3>Детали</h3>
-                <div class="details-grid">
-                    <div class="detail-item">
-                        <div class="label">Дата покупки</div>
-                        <div class="value">—</div>
-                    </div>
-                    <div class="detail-item">
-                        <div class="label">Место покупки</div>
-                        <div class="value">—</div>
-                    </div>
-                    <div class="detail-item">
-                        <div class="label">Страна</div>
-                        <div class="value">—</div>
-                    </div>
-                    <div class="detail-item">
-                        <div class="label">Цена</div>
-                        <div class="value">—</div>
-                    </div>
-                </div>
+                <h3>Информация</h3>
+                <ul class="details-list">
+                    <li>
+                        <span class="label">Дата покупки</span>
+                        <span class="value">—</span>
+                    </li>
+                    <li>
+                        <span class="label">Изготовитель</span>
+                        <span class="value">—</span>
+                    </li>
+                    <li>
+                        <span class="label">Цена</span>
+                        <span class="value">—</span>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
