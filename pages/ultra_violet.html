@@ -11,7 +11,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0a0a1a;
+            background-color: #0d0518; /* Глубокий темно-фиолетовый, как основа банки */
             color: #e0e0e0;
             margin: 0;
             padding: 0;
@@ -20,20 +20,20 @@
 
         /* === ШАПКА === */
         header {
-            background: linear-gradient(135deg, #1a0a2e 0%, #0a0a1a 100%);
+            background: linear-gradient(135deg, #1a0a2e 0%, #0d0518 100%);
             padding: 30px 20px;
             text-align: center;
-            border-bottom: 2px solid #9b59b6;
-            box-shadow: 0 0 30px rgba(155, 89, 182, 0.4);
+            border-bottom: 2px solid #b0b0b0; /* Металлический серебристый */
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.2);
         }
 
         header h1 {
             margin: 0;
             font-family: 'Creepster', cursive;
             font-size: 2.8em;
-            color: #000000;
-            -webkit-text-stroke: 1.5px #9b59b6;
-            text-shadow: 0 0 15px rgba(155, 89, 182, 0.6);
+            color: #e0e0e0; /* Серебристый цвет, как гравировка */
+            -webkit-text-stroke: 1.5px #9b59b6; /* Фиолетовая обводка, как на банке */
+            text-shadow: 0 0 15px rgba(155, 89, 182, 0.4);
             letter-spacing: 4px;
         }
 
@@ -41,18 +41,18 @@
             display: inline-block;
             margin-top: 15px;
             padding: 10px 25px;
-            background: rgba(155, 89, 182, 0.2);
-            border: 2px solid #9b59b6;
+            background: rgba(176, 176, 176, 0.1);
+            border: 2px solid #b0b0b0;
             border-radius: 25px;
-            color: #fff;
+            color: #e0e0e0;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s ease;
         }
 
         .back-btn:hover {
-            background: rgba(155, 89, 182, 0.4);
-            box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
+            background: rgba(176, 176, 176, 0.2);
+            box-shadow: 0 0 20px rgba(176, 176, 176, 0.4);
             transform: translateY(-2px);
         }
 
@@ -78,13 +78,13 @@
             width: 100%;
             height: 400px;
             background: #000;
-            border: 2px solid #9b59b6;
+            border: 2px solid #b0b0b0; /* Серебристая рамка */
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+            box-shadow: 0 0 20px rgba(176, 176, 176, 0.15);
         }
 
         .main-photo img {
@@ -97,20 +97,20 @@
             position: absolute;
             top: 15px;
             right: 15px;
-            background: rgba(155, 89, 182, 0.9);
-            color: #fff;
+            background: #b0b0b0; /* Серебристый бейдж */
+            color: #0d0518; /* Темный текст для контраста */
             padding: 6px 14px;
             border-radius: 20px;
             font-weight: bold;
             font-size: 0.9em;
-            box-shadow: 0 0 10px rgba(155, 89, 182, 0.6);
+            box-shadow: 0 0 10px rgba(176, 176, 176, 0.5);
         }
 
         .gif-container {
             width: 100%;
             height: 200px;
-            background: rgba(26, 10, 46, 0.6);
-            border: 2px dashed #9b59b6;
+            background: rgba(20, 10, 40, 0.6);
+            border: 2px dashed #b0b0b0;
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -125,7 +125,7 @@
         }
 
         .gif-placeholder-text {
-            color: #6a5a7e;
+            color: #888;
             font-style: italic;
         }
 
@@ -137,19 +137,19 @@
         }
 
         .info-block {
-            background: rgba(26, 10, 46, 0.6);
-            border: 2px solid #9b59b6;
+            background: rgba(20, 10, 40, 0.7);
+            border: 2px solid #b0b0b0; /* Серебристая рамка блока */
             border-radius: 15px;
             padding: 25px;
-            box-shadow: 0 0 15px rgba(155, 89, 182, 0.2);
+            box-shadow: 0 0 15px rgba(176, 176, 176, 0.1);
         }
 
         .info-block h3 {
             margin: 0 0 15px 0;
-            color: #9b59b6;
+            color: #b0b0b0; /* Серебристый заголовок */
             font-size: 1.3em;
-            text-shadow: 0 0 8px rgba(155, 89, 182, 0.5);
-            border-bottom: 1px solid rgba(155, 89, 182, 0.3);
+            text-shadow: 0 0 8px rgba(176, 176, 176, 0.3);
+            border-bottom: 1px solid rgba(176, 176, 176, 0.3);
             padding-bottom: 10px;
             display: flex;
             align-items: center;
@@ -158,7 +158,7 @@
 
         .info-block p {
             margin: 0;
-            color: #b0a0c0;
+            color: #c0c0c0;
             font-size: 1.05em;
             line-height: 1.7;
         }
@@ -171,15 +171,15 @@
         }
 
         .rating-box {
-            background: rgba(10, 10, 26, 0.8);
-            border: 2px solid #9b59b6;
+            background: rgba(10, 5, 20, 0.8);
+            border: 2px solid #b0b0b0;
             border-radius: 12px;
             padding: 20px;
             text-align: center;
         }
 
         .rating-box .label {
-            color: #6a5a7e;
+            color: #888;
             font-size: 0.95em;
             margin-bottom: 8px;
             text-transform: uppercase;
@@ -190,8 +190,8 @@
         .rating-box .value {
             font-size: 2.2em;
             font-weight: bold;
-            color: #9b59b6;
-            text-shadow: 0 0 15px #9b59b6;
+            color: #b0b0b0; /* Серебристая оценка */
+            text-shadow: 0 0 15px rgba(176, 176, 176, 0.5);
         }
 
         .rating-box .subtitle {
@@ -209,7 +209,7 @@
 
         .details-list li {
             padding: 12px 0;
-            border-bottom: 1px solid rgba(155, 89, 182, 0.2);
+            border-bottom: 1px solid rgba(176, 176, 176, 0.2);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -220,13 +220,13 @@
         }
 
         .details-list .label {
-            color: #6a5a7e;
+            color: #888;
             font-size: 0.95em;
             font-weight: 600;
         }
 
         .details-list .value {
-            color: #fff;
+            color: #e0e0e0;
             font-weight: bold;
             font-size: 1.05em;
         }
@@ -247,26 +247,25 @@
         .trophy-text {
             visibility: hidden;
             width: 220px;
-            background-color: #9b59b6;
-            color: #fff;
+            background-color: #b0b0b0; /* Серебристый фон подсказки */
+            color: #0d0518; /* Темно-фиолетовый текст для контраста */
             text-align: center;
             border-radius: 8px;
             padding: 10px 15px;
             position: absolute;
             z-index: 10;
-            bottom: 130%; /* Расположение над иконкой */
+            bottom: 130%;
             left: 50%;
-            margin-left: -110px; /* Центрирование */
+            margin-left: -110px;
             opacity: 0;
             transition: opacity 0.3s, transform 0.3s;
             transform: translateY(10px);
             font-size: 0.9em;
-            font-weight: 600;
-            box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
+            font-weight: 700;
+            box-shadow: 0 0 20px rgba(176, 176, 176, 0.5);
             pointer-events: none;
         }
 
-        /* Стрелочка вниз у подсказки */
         .trophy-text::after {
             content: "";
             position: absolute;
@@ -275,7 +274,7 @@
             margin-left: -6px;
             border-width: 6px;
             border-style: solid;
-            border-color: #9b59b6 transparent transparent transparent;
+            border-color: #b0b0b0 transparent transparent transparent;
         }
 
         .trophy-tooltip:hover .trophy-text {
